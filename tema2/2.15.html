@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 15</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+    var num=parseInt(prompt("Introduce un numero: "));
+
+    var fibonacci=[];
+    
+    fibonacci[0]=0;
+    fibonacci[1]=1;
+
+    document.write(fibonacci[0] + " ");
+    document.write(fibonacci[1] + " ");
+
+    for (var i=2;i<num;i++){
+
+        fibonacci[i]=fibonacci[i-1]+fibonacci[i-2];
+        document.write(fibonacci[i] + " ");    }
+        
+</script>
+</html>
