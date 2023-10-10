@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var num=(parseInt(prompt("Introduce un numero: ")));
+        var a=0,b=1;
+        var resultado="Serie de fibonacci: "+a+", "+b;
+
+        while (a+b<=num) {
+            var temp = a + b;
+            resultado += ", "+temp;
+            a=b;
+            b=temp;
+        }
+        document.write(resultado);
+
+    </script>
+</body>
+</html>

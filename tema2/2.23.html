@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros introducidos</title>
+</head>
+<body>
+    
+    <script>
+
+        var num;
+        var contador=0;
+
+        while(true){
+            num=parseInt(prompt("Introduce un numero: "));
+            if(num===9999){
+                break;
+            }
+            contador++;
+        }
+     document.write("Cantidad de numeros introducidos: "+contador);
+
+
+    </script>
+
+</body>
+</html>

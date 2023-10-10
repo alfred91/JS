@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caracteres introducidos</title>
+</head>
+<body>
+    
+    <script>
+
+        var caracter;
+        var contador=0;
+
+        while(caracter !='*'){
+
+            caracter=prompt("Introduce un caracter: ");
+            if(caracter=='a' || caracter=='e' || caracter=='i' ||
+            caracter=='o' || caracter=='u'){
+                contador++;
+            }
+        }
+     document.write("Cantidad de vocales introducidas: "+contador);
+
+    </script>
+
+</body>
+</html>

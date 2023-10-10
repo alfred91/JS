@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+        let diasSemana=["lunes","martes","miercoles","jueves","viernes","sabado","domingo"];
+        document.write("la longitud del array es "+ diasSemana.length);
+        for (let i=0;i<diasSemana.length;i++){
+           document.write(diasSemana[i]+ "<br>");
+        }
+
+        for(let dia in diasSemana){//utilizando un for in
+            document.write(diasSemana[dia]+ "<br>");
+        }
+        let mensaje=diasSemana.join("+");
+        alert(mensaje);
+        let array1=[1,2];
+        let array2=diasSemana.concat(array1);
+        alert(array2);
+        alert(diasSemana.reverse());
+        alert(diasSemana.sort());
+     
+    </script>
+    
+</body>
+</html>

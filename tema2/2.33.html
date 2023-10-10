@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    function tiempo(ayer,hoy){
+        
+        if(ayer==="SOL" && hoy === "SOL"){
+                return "SOL";
+        } else if (ayer === "NUBLADO" && hoy === "NUBLADO") {
+            return "NUBLADO";
+        } else if (ayer === "LLUVIA" && hoy === "LLUVIA") {
+            return "LLUVIA";
+        } else if (ayer === "SOL" && hoy === "NUBLADO") {
+            return "NUBLADO";
+        } else if (ayer === "NUBLADO" && hoy === "SOL") {
+            return "SOL";
+        } else if (ayer === "SOL" && hoy === "LLUVIA") {
+            return "NUBLADO";
+        } else if (ayer === "LLUVIA" && hoy === "SOL") {
+            return "NUBLADO";
+        } else if (ayer === "NUBLADO" && hoy === "LLUVIA") {
+            return "LLUVIA";
+        } else if (ayer === "LLUVIA" && hoy === "NUBLADO") {
+            return "NUBLADO";
+        } else {
+            return "No se puede predecir";
+        }
+    }
+
+    var ayer = prompt("Ingrese el tiempo de ayer (SOL, NUBLADO, LLUVIA):").toUpperCase();
+
+    var hoy = prompt("Ingrese el tiempo de hoy (SOL, NUBLADO, LLUVIA):").toUpperCase();
+
+    var prediccion=tiempo(ayer,hoy);
+    document.write(prediccion);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <p id="primero">Hola</p>
+    <p id="segundo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, non ducimus id voluptatum minus ut eum delectus quos quidem quaerat a. Enim illum fuga quaerat deleniti veniam, consectetur nihil sed.</p>
+    <script>
+        let numero=prompt("introduce un numero");
+        while(isNaN(numero)){//comrueba que si no es un numero
+            numero=prompt("has introducido una letra, introduce un numero");
+        }
+        alert(`el numero introducido es ${numero}`);
+        document.getElementById("primero").innerHTML="el numero introduzido es "+ numero;
+        document.getElementById("segundo").innerHTML=`has introducido un ${numero}`;
+        
+    </script>
+</body>
+</html>

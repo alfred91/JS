@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantidad Pares/Impares</title>
+</head>
+<body>
+    
+<script>
+
+    var num;
+    var contador=1, pares=0, impares=0;
+
+    while (contador<=20){
+        num=parseInt(prompt("Introduce el numero "+contador+": "));
+        contador++;
+        if(num%2===0){
+            pares++;
+        } else {
+            impares++;
+    }
+}
+    document.write("Has introducido "+pares+" números pares.<br>");
+    document.write("Has introducido "+impares+" números impares.");
+
+
+</script>
+
+
+</body>
+</html>

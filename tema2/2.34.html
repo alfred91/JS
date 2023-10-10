@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcion area</title>
+</head>
+<body>
+    <script>
+
+    var figura=prompt("Introduce una figura(triangulo,rectangulo,cirulo)");
+
+        function area(figura){
+
+            if (figura==="triangulo" || figura==="triángulo"){
+
+                var base = parseFloat(prompt("Introduce la base:"));
+                var altura = parseFloat(prompt("Introduce la altura:"));
+                return 0.5 * base * altura;
+
+            } else if (figura==="rectangulo" || figura==="rectángulo"){
+
+                var base = parseFloat(prompt("Introduce la base:"));
+                var altura = parseFloat(prompt("Introduce la altura:"));
+                return base * altura;
+
+            } else if (figura==="circulo" || figura==="círculo"){
+
+                var radio = parseFloat(prompt("Introduce el radio:"));
+                return Math.PI * radio * radio;
+            }
+        }
+
+        var resultado=area(figura);
+
+            document.write("El area del "+figura+" es: "+resultado);
+            
+    </script>
+    
+</body>
+</html>
