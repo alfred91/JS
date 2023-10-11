@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,td{ border: 1px solid black;
+                     border-collapse: collapse;
+        }
+        .amarillo{
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        function par(numero){
+
+            if(numero%2!==0){
+
+                par=false;
+
+            } else par=true;
+            
+            return par;
+        }
+        
+        function tabla(filas,columnas){
+            let contador=1;
+            document.write("<table>");
+
+                for (let i=1;i<=filas;i++){
+                    document.write("<tr>");
+                    for (let j=1;j<=columnas;j++){
+                        if (par(contador)){
+                            document.write("<td class='amarillo'>")+contador+"</td>";
+                        }else{
+                        document.write("<td>"+contador+"</td>");
+                    }
+                    contador++;
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+        let fila=parseInt(prompt("Introduce el n de filas: "));
+        let columna=parseInt(prompt("Introduce el n. de columnas: "));
+
+    tabla(fila,columna);
+
+    </script>
+</body>
+</html>
