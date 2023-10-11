@@ -29,6 +29,10 @@ function primo(num) {
         if(num%i===0){
 
             return false;
+
+        } else if (num===1)
+            {
+            return false;
         }
     }           return true;
 }
@@ -38,14 +42,14 @@ function primo(num) {
 
         function construyeTabla(filas, columnas) {
 
-            document.write("<table>")
+            document.write("<table>");
             for (var i = 1; i <= filas; i++) {
                 document.write("<tr>");
                 for (var j = 1; j <= columnas; j++) {
                     if(primo(contador)){
-                        document.write("<td class='amarillo'>" + contador+"</td>"); 
+                        document.write("<td class='amarillo'>"+contador+"</td>"); 
                     }else{
-                        document.write("<td>" + contador+"</td>");
+                        document.write("<td>"+contador+"</td>");
                     }
                     contador++;
                 }
