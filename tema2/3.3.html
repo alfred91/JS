@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .verde{
+        color:green;
+        font-size: 2em;
+    }
+    .rojo{
+        color: red;
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <script>
+
+        var i=1;
+
+            document.write(i+"<br>");
+
+            for (var j = 10; j <=300; j += 10) {
+
+                if (j % 2 === 0) {
+                    document.write('<span class="verde">' + j + '</span><br>');
+                } else if (j % 3 === 0) {
+                    document.write('<span class="rojo">' + j + '</span><br>');
+                } else {
+                    document.write(j+'<br>');
+                }
+            }
+
+    </script>
+</body>
+</html>

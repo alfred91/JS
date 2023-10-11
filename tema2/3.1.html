@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin: 0 auto;
+        }
+        table,tr,td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .amarillo{
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        
+function primo(num) {
+
+    for(var i=2;i<=Math.sqrt(num);i++){
+
+        if(num%i===0){
+
+            return false;
+        }
+    }           return true;
+}
+        let contador=1;
+        let fila = parseInt(prompt("intruduce el numero de filas"));
+        let colum = parseInt(prompt("intruduce el numero de columnas"));
+
+        function construyeTabla(filas, columnas) {
+
+            document.write("<table>")
+            for (var i = 1; i <= filas; i++) {
+                document.write("<tr>");
+                for (var j = 1; j <= columnas; j++) {
+                    if(primo(contador)){
+                        document.write("<td class='amarillo'>" + contador+"</td>"); 
+                    }else{
+                        document.write("<td>" + contador+"</td>");
+                    }
+                
+                    document.write(contador);
+                    contador++;
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+
+        construyeTabla(fila, colum);
+
+    </script>
+</body>
+
+</html>
