@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+
+        function nombreMesCorto(numeroMes){
+
+            const mes=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+
+            if (numeroMes>=0 && numeroMes<=11){
+
+                return mes[numeroMes];
+
+            } else {
+
+                return "Mes no válido";
+            }
+        }
+
+        const numeroMesActual=new Date().getMonth();
+
+        const nombreMesActual=nombreMesCorto(numeroMesActual);
+
+        document.write(nombreMesActual);
+
+    </script>
+    
+</body>
+</html>

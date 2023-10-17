@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ex">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <script>
+
+        function obtenerNombreDia(numeroDia) {
+
+            const diaSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+        
+            if(numeroDia >= 0 && numeroDia <= 6){
+
+            return diaSemana[numeroDia];
+            } else {  return "Dia no válido";
+
+            }
+        }
+
+    const numeroDiaActual = new Date().getDay();
+
+        const nombreDiaActual = obtenerNombreDia(numeroDiaActual);
+
+            document.write("Número del dia: "+numeroDiaActual+"<br>");
+
+            document.write("Nombre del dia: "+nombreDiaActual);
+
+    </script>
+    
+</body>
+</html>

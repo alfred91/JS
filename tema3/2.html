@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <script>
+
+        function diaCorto(numeroDia){
+
+            const diaSemana=["Dom","Lun","Mar","Mie","Jue","Vie","Sab"];
+
+            if (numeroDia>=0 && numeroDia<=6){
+
+                return diaSemana[numeroDia];
+
+            } else {
+
+                return "Numero no válido";
+            }
+        }
+
+        const numeroDiaActual=new Date().getDay();
+
+        const nombreDiaActual=diaCorto(numeroDiaActual);
+
+        document.write(nombreDiaActual);
+
+    </script>
+    
+</body>
+</html>
