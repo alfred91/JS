@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <script>
+
+    let numGenerados=[];
+
+        while(numGenerados.length < 15){
+
+            let numAle=Math.floor(Math.random()*3)+1;
+
+                if(numAle===1){
+
+                    resultado="1";
+
+                } else if (numAle===2) {
+
+                    resultado="2";
+                    
+                } else {
+
+                    resultado="X";
+                }
+
+            numGenerados.push((resultado));
+        }
+        document.write("QUINIELA<br><br>");
+            for (let i=0;i<numGenerados.length;i++){
+
+                document.write(numGenerados[i]+"<br>");
+
+
+            }
+
+    </script>
+</body>
+</html>

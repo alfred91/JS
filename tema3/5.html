@@ -3,17 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 5</title>
 </head>
 <body>
     <script>
 
         function maxMin(a,b,c,d){
-            
+
+            let maximo=Math.max(a,b,c,d);
+            let minimo=Math.min(a,b,c,d);
+
+            document.write("Maximo: "+maximo+"<br>");
+            document.write("Minimo: "+minimo);
+
         }
 
-        
+        let a=parseInt(prompt("Intoduce nunero"));
+        let b=parseInt(prompt("Intoduce nunero"));
+        let c=parseInt(prompt("Intoduce nunero"));
+        let d=parseInt(prompt("Intoduce nunero"));          
+
+         maxMin(a,b,c,d);
 
     </script>
+
 </body>
 </html>
