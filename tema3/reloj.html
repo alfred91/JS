@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj</title>
+    <style>
+        #reloj {
+            font-family:cursive;
+            background-color: black;
+            color: white;
+            font-size: 2em;
+            padding: 1em;
+            text-align: center;
+            width: 3em; /* Establece el ancho del contenedor del reloj */
+            margin: left;
+        }
+    </style>
+</head>
+<body onload="tiempo()">
+    <div id="reloj"></div>
+        <script>
+
+            function tiempo(){
+                
+                let fecha=new Date();
+                let hora=fecha.getHours();
+                let minuto=fecha.getMinutes();
+                let segundos=fecha.getSeconds();
+
+                    if (segundos<10){
+                        segundos="0"+ segundos;
+                    }
+                    if (minuto<10){
+                        minuto="0"+ minuto;
+                    }
+                    if (hora<10){
+                    hora ="0"+ hora;
+                    }
+                        
+            document.getElementById("reloj").innerHTML = hora+":"+minuto+":"+segundos;
+
+                setTimeout(tiempo, 1000);
+                }
+            
+        </script>
+    </body>
+</html>

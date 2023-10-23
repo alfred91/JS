@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            float:left;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        function cambiaColor(elemento){
+            document.bgColor=elemento.id;
+            elemento.style.backgroundImage="url(gafas.jpg)";
+
+        }
+        function restauraColor(elemento){
+            document.bgColor="white";
+            elemento.style.backgroundImage="";
+
+        }
+    </script>
+    <h1 id="cabecera"> Bienvenidos a mi web </h1>
+    <div id="blue" name="blue" style="background-color: blue;" onmouseover="cambiaColor(this)" onmouseout="restauraColor(this)"></div>
+    <div id="red" style="background-color: red;" onmouseover="cambiaColor(this)" onmouseout="restauraColor(this)"></div>
+    <div id="yellow" style="background-color:yellow;" onmouseover="cambiaColor(this)" onmouseout="restauraColor(this)"></div>
+    <div id="green" style="background-color:green;" onmouseover="cambiaColor(this)" onmouseout="restauraColor(this)"></div>
+</body>
+</html>

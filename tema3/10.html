@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar Caracteres</title>
+</head>
+<body>
+        <script>
+
+function contarCaracteres(){
+
+let cont=0;
+let cadena="";
+
+while (cadena.toLowerCase() !== "fin" || cadena.toUpperCase() !== "FIN") {
+
+cadena = prompt("Introduce un cadena (escribe 'Fin o FIN' para salir):");
+if (cadena.toLowerCase() !== "fin" || cadena.toUpperCase() !== "FIN") {
+    cont++;
+}
+}
+
+document.write("Se ingresaron " + cont + " nombres.");
+}   
+
+contarCaracteres();
+
+        </script>
+</body>
+</html>
