@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Busqueda de cadenas </title>
 </head>
 <body>
     <script>
 
-        
+    let buusqueda="";
+    let cadena="";
+    let resultado="";
+
+        cadena = prompt("Introduce un cadena: "); 
+        busqueda=prompt("Introduce la clave a buscar: ");
+
+        resultado =cadena.indexOf(busqueda);
+
+if (resultado !== -1){
+
+        document.write(resultado);
+
+} else document.write("No se ha encontrado la posicion");
 
     </script>
 </body>

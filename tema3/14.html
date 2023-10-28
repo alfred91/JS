@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexOf</title>
+</head>
+<body>
+    <script>
+
+        let email= prompt("Introduce un email: ");
+
+        function arroba(email){
+
+            return email.indexOf("@");
+        } 
+
+let indiceArroba = arroba(email);
+
+    if (indiceArroba>-1){
+
+        document.write(email+" Es un email valido");
+        
+    } else document.write(email+" No es email valido");
+
+    </script>
+</body>
+</html>

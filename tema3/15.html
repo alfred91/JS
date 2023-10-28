@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let cadena=prompt("Introduce una cadena: ");
+
+    function imprimirMitad(cadena){
+        return cadena.substring(Math.floor(cadena.length/2));
+    }
+    function ultimoCaracter(cadena){
+        return cadena.charAt(cadena.length-1);
+    }
+    function cadenaInvertida(cadena){
+        return cadena.split("").reverse().join("");
+    }
+    function caracterSeparadoGuion(cadena){
+        return cadena.split("").join("-");
+    }
+    function cantidadVocales(cadena){
+        return cadena.match(/[aeiou]/gi).length;
+    }
+
+
+
+document.write(imprimirMitad(cadena)+"<br>");
+document.write(ultimoCaracter(cadena)+"<br>");
+document.write(cadenaInvertida(cadena)+"<br>");
+document.write(caracterSeparadoGuion(cadena)+"<br>");
+document.write(cantidadVocales(cadena));
+
+</script>
+</body>
+</html>

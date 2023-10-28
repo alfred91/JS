@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window</title>
+</head>
+<body>
+    <form>
+
+        <input type="text" id="nombre" placeholder="Nombre">
+        <br>
+        <input type="number" id="edad" placeholder="Edad">
+        <br>
+        <input type="submit" value="Enviar">
+        <input type="button" value="Imprimir" onclick="imprimirFormulario()">
+
+    </form>
+
+
+    <script>
+
+        function imprimirFormulario(){
+            let nombre=document.getElementById("nombre").value;
+            let edad=document.getElementById("edad").value;
+            let contenido="Nombre: "+nombre+" Edad: "+edad;
+            document.body.innerHTML+="<p>"+contenido+"</p>"; 
+            window.print();
+        }
+
+    </script>
+</body>
+</html>

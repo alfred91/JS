@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    let arrayNum=[1,2,3,12,5,6,7,8,9];
+
+    function menorMayor(a,b){return a-b;}
+    function mayorMenor(a,b){return b-a;}
+        
+        document.write("Array: "+arrayNum+"<br>");
+        document.write("el array invertido es "+arrayNum.sort((mayorMenor)));
+            document.write("<br>");
+        document.write("el array ordenado es : "+arrayNum.sort((menorMayor)));
+            document.write("<br>");
+        document.write("el 1º elemento del array original es : "+arrayNum.sort((menorMayor))[0]);
+            document.write("<br>");
+        document.write("el 1º elemento del array invertido es : "+arrayNum.sort((mayorMenor))[0]);
+        
+    </script>
+</body>
+</html>
