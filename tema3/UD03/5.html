@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadena</title>
+</head>
+<body>
+    <script>
+
+let cadena = prompt("Introduce la cadena en el formato 'nombre:apellidos:telefono:email:codigopostal'");
+let posicion = cadena.split(":");
+
+    let codigoPostal = posicion[4];
+    let apellidos = posicion[1];
+    let email = posicion[3];
+    let servidorEmail = email.split("@")[1];
+
+document.write("Código postal: " + codigoPostal);
+document.write("Apellidos: " + apellidos);
+document.write("Email: " + email);
+document.write("Servidor de email: " + servidorEmail);
+
+
+    </script>
+    
+</body>
+</html>

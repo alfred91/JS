@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function pedirDNI(){
+
+            let letras =[];
+            let dni=parseInt(prompt("Introduce un DNI sin letra: "));
+
+            if (dni!==-1){
+
+                let tabla = 'TRWAGMYFPDXBNJZSQVHLCKE';
+
+                let letra = tabla.charAt(dni%23);
+                
+                letras.push(letra);
+            
+            } else { clearInterval(intervalID);
+            
+                    }
+                document.write(letras);
+    }
+
+    let intervalID = setInterval(pedirDNI, 2000);
+
+
+    </script>
+</body>
+</html>

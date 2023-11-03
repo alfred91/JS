@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Ventana</title>
+</head>
+<body>
+    <h1>Formulario de Validación</h1>
+    <form onsubmit="return validarFormulario()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required><br>
+
+        <label for="aficion">Afición:</label>
+        <select id="aficion" name="aficion" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Informática">Informática</option>
+            <option value="Deporte">Deporte</option>
+            <option value="Música">Música</option>
+        </select><br>
+
+        <label for="color">Color de la ventana:</label>
+        <input type="color" id="color" name="color"><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <script>
+
+    function validarFormulario() {
+
+        let nombre = document.getElementById("nombre").value;
+        let edad = document.getElementById("edad").value;
+        let aficion = document.getElementById("aficion").value;
+        let color = document.getElementById("color").value;
+
+            if (nombre === "") {
+                alert("Debes rellenar el campo de nombre.");
+                return false;
+            }
+
+                if (edad === "" || parseInt(edad) < 18) {
+                    alert("La edad debe ser mayor de 18 años.");
+                    return false;
+                }
+
+                    if (aficion === "") {
+                        alert("Debes seleccionar una afición.");
+                        return false;
+                    }
+
+        let nuevaVentana = window.open("", "Validación de formulario", "width=500,height=500");
+
+            nuevaVentana.document.write("<h1>Datos del Formulario:</h1>");
+            nuevaVentana.document.write("<p><strong>Nombre:</strong> " + nombre + "</p>");
+            nuevaVentana.document.write("<p><strong>Edad:</strong> " + edad + "</p>");
+            nuevaVentana.document.write("<p><strong>Afición:</strong> " + aficion + "</p>");
+            
+            nuevaVentana.document.write("<button onclick='window.close()'>Cerrar Ventana</button>");
+            nuevaVentana.document.body.style.backgroundColor = color;
+    }
+    </script>    
+</body>
+</html>

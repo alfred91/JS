@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNIs</title>
+</head>
+<body>
+    <script>
+
+let DNIs = [];
+let tabla = 'TRWAGMYFPDXBNJZSQVHLCKE';
+let letra = prompt("Introduce una letra: ").toUpperCase();
+
+
+    for (let i = 1; i <= 999; i++) {
+        
+        let dni = i.toString().padStart(3, '0') + letra;
+        let letraCalculada = tabla.charAt(parseInt(dni) % 23);
+
+        if (letra === letraCalculada) {
+            DNIs.push(dni);
+        }
+    }
+            document.write(DNIs);
+
+
+    </script>
+    
+</body>
+</html>
