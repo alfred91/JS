@@ -27,73 +27,84 @@
 
         poblaciones = ['Localidad', 'Enero', 'Febrero', 'Marzo', 'Abril'];
 
-        temperaturas = 
-        [['Cuevas del Alamanzora', 12, 13, 15, 18],
-        ['Granada', 4.5, 8, 9, 15],
-        ['Madrid', 4, 5.8, 8, 13],
-        ['Soria', 0, 1, 6, 10],
-        ['Málaga', 14, 16.7, 18.4, 20.3]];
+        temperaturas =
+            [['Cuevas del Alamanzora', 12, 13, 15, 18],
+            ['Granada', 4.5, 8, 9, 15],
+            ['Madrid', 4, 5.8, 8, 13],
+            ['Soria', 0, 1, 6, 10],
+            ['Málaga', 14, 16.7, 18.4, 20.3]];
 
         let i = 0;
-        
+
         document.write("<table>")
         document.write("<tr>");
 
         for (i = 0; i < poblaciones.length; i++) {
 
             document.write(`<th> ${poblaciones[i]} </th>`)
-            
+
         }
         document.write(`<th>Temperatura media</th>`)
-        
+
+        document.write("</tr>");
+
+        for (i = 0; i < temperaturas.length; i++) {
+
+            document.write("<tr><td>" + temperaturas[i][0] + "</td>");
+            document.write("<td>" + temperaturas[i][1] + "</td>");
+            document.write("<td>" + temperaturas[i][2] + "</td>");
+            document.write("<td>" + temperaturas[i][3] + "</td>");
+            document.write("<td>" + temperaturas[i][4] + "</td>");
+            let media = ((temperaturas[i][1] + temperaturas[i][2] +
+                temperaturas[i][3] + temperaturas[i][4]) / 4);
+            document.write("<td>" + media + "</td>");
             document.write("</tr>");
-
-            for (i = 0; i < temperaturas.length; i++) {
-
-                document.write("<tr><td>"+temperaturas[i][0]+"</td>");
-                document.write("<td>"+temperaturas[i][1]+"</td>");
-                document.write("<td>"+temperaturas[i][2]+"</td>");
-                document.write("<td>"+temperaturas[i][3]+"</td>");
-                document.write("<td>"+temperaturas[i][4]+"</td>");
-                let media=((temperaturas[i][1]+temperaturas[i][2]+
-                            temperaturas[i][3]+temperaturas[i][4])/4);
-                            document.write("<td>"+media+"</td>");
-                document.write("</tr>");
-     }
-        
-        
-document.write("</table>");
+        }
 
 
-for(let i=0;i<poblaciones.length;i++){
-
-mayor=temperaturas[i][3];
-    if (temperaturas[i][3]>mayor);
-    {
-        mayor=temperaturas[i][3];
-    }
-}
-
-document.write("<p>La temperatura mas alta de "+poblaciones[3]+" Es: "
-    +mayor+"Cº y corresponde a la población: "+temperaturas[4][0]+"<br><br>");
+        document.write("</table>");
 
 
-        for(let i=0;i<=temperaturas.length;i++){
+        for (let i = 0; i < poblaciones.length; i++) {
 
-            document.write((temperaturas[i])+"<br><br>");
-
-            for (let j=1;j<=temperaturas[i].length;j++){
-                document.write((temperaturas[i]));
-                            
-
+            mayor = temperaturas[i][3];
+            if (temperaturas[i][3] > mayor);
+            {
+                mayor = temperaturas[i][3];
+                localidadMayor = temperaturas[i][0];
             }
         }
 
-        for (let i=0;i<poblaciones.length;i++){
-            document.write(temperaturas[i][4]);
+        document.write("<p>La temperatura mas alta de " + poblaciones[3] + " Es: "
+            + mayor + "Cº y corresponde a la población de " + localidadMayor + "</p>");
 
+        let temperaturaMediaAbril = 0;
 
+        for (let i = 0; i < temperaturas.length; i++) {
+            temperaturaMediaAbril += temperaturas[i][4];
         }
+
+        temperaturaMediaAbril /= temperaturas.length;
+
+        document.write("<p>La temperatura media de abril es: " + temperaturaMediaAbril + "°C</p>");
+
+
+        // Calcular y mostrar la localidad con la peor temperatura media
+        let localidadPeorMedia = "";
+        let temperaturaPeorMedia = Infinity;
+
+        for (let i = 0; i < temperaturas.length; i++) {
+            let media = (temperaturas[i][1] + temperaturas[i][2] +
+                temperaturas[i][3] + temperaturas[i][4]) / 4;
+
+            if (media < temperaturaPeorMedia) {
+                temperaturaPeorMedia = media;
+                localidadPeorMedia = temperaturas[i][0];
+            }
+        }
+
+        document.write("<p>La localidad con la peor temperatura media es " + localidadPeorMedia + " con una media de: " + temperaturaPeorMedia.toFixed(2) + "°C</p>");
+
 
     </script>
 </body>
