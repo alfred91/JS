@@ -9,12 +9,12 @@
     <script>
         function abrirVentana(){
             
-            let miventana=window.open("","Mi ventana","width=500px ,height=500px");
-            miventana.document.write("<title>mi ventana nueva</title><h1>hola</h1>");
-            miventana.document.bgColor=document.getElementById("color").value;
+            let ventana=window.open("","Mi ventana","width=500px ,height=500px");
+            ventana.document.write("<title>Ventana nueva</title><h1>hola</h1>");
+            ventana.document.bgColor=document.getElementById("color").value;
         }
-       
     </script>
+
     <input type="color" name="" id="color">
     <input type="button" value="Abrir ventana " onclick="abrirVentana()">
     
