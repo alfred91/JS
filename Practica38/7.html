@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="articuloForm">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" name="descripcion" id="descripcion"><br><br>
+
+        <label for="codigo">Código:</label>
+        <input type="text" name="codigo" id="codigo"><br><br>
+
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" id="precio"><br><br>
+
+        <label for="descuento">Descuento (%):</label>
+        <input type="number" name="descuento" id="descuento"><br>
+
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        class Articulo {
+            constructor(descripcion, codigo, precio) {
+                this.descripcion = descripcion;
+                this.codigo = codigo;
+                this.precio = precio;
+
+                this.iva = function () {
+                    return this.precio * 0.21;
+                };
+
+                this.total = function (descuento) {
+                    descuento = descuento || 0;
+                    return this.precio - (this.precio * descuento / 100);
+                };
+            }
+        }
+
+        function calcular() {
+            let descripcion = document.getElementById('descripcion').value;
+            let codigo = document.getElementById('codigo').value;
+            let precio = parseFloat(document.getElementById('precio').value);
+            let descuento = parseInt(document.getElementById('descuento').value);
+
+            let miArticulo = new Articulo(descripcion, codigo, precio);
+            let iva = miArticulo.iva();
+            let precioDescuento = miArticulo.total(descuento);
+
+            document.getElementById('resultado').innerHTML =
+                'Descripción: ' + descripcion + '<br>' +
+                'Código: ' + codigo + '<br>' +
+                'Precio sin IVA: ' + precio + '€<br>' +
+                'IVA: ' + iva + ' %<br>' +
+                'Total con descuento de ' + descuento + '% es de: ' + precioDescuento + ' €';
+        }
+
+    </script>
+</body>
+
+</html>

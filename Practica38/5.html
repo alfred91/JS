@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Coche {
+            constructor(marca, modelo, anyo){
+                this.marca = marca;
+                this.modelo = modelo;
+                this.anyo = anyo;
+        }
+    }
+
+        audi=new Coche("Audi", "a5", "2020");
+        bmw=new Coche("BMW", "320d", "2015");
+        seat=new Coche("Seat", "Toledo", "2018");
+
+        document.write("<table border=1 solid >");
+        document.write("<tr><th>Marca</th><th>Modelo</th><th>Año</th></tr>");
+
+
+        function tablaCoches(coche){
+            document.write("<tr>");
+                document.write(`<td>${coche.marca}</td>`);
+                document.write(`<td>${coche.modelo}</td>`);
+                document.write(`<td>${coche.anyo}</td>`);
+            document.write("</tr>")
+
+        }
+
+        tablaCoches(audi);
+        tablaCoches(bmw);
+        tablaCoches(seat);
+
+        document.write("</table>");
+
+    </script>
+</body>
+</html>

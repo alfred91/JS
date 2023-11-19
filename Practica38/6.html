@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class productoAlimenticio{
+
+            constructor(codigo, nombre, precio){
+                this.codigo = codigo;
+                this.nombre = nombre;
+                this.precio = precio;
+                }
+
+            imprimeDatos(){
+
+                document.write("Codigo: " + this.codigo+" ");
+                document.write("Nombre: "+ this.nombre+" ");
+                document.write("Precio: "+ this.precio+"<br><br>");
+                        }        
+                    }
+
+                    let productos = [
+                    new productoAlimenticio("001","Leche","1"),
+                    new productoAlimenticio("002","Pan","0.6"),
+                    new productoAlimenticio("003","Cafe","2.50")
+                            ];
+
+                for (let producto of productos){
+                    producto.imprimeDatos();
+
+                }
+
+    </script>
+</body>
+</html>

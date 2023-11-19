@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        class Edificio {
+
+            constructor(calle, numero, cp) {
+
+                this.calle = calle;
+                this.numero = numero;
+                this.cp = cp;
+                this.plantas = [];
+
+                document.write(`Construido un nuevo edificio en la calle: ${calle}, nª: ${numero}, CP: ${cp}<br>`);
+            }
+
+            agregarPlantasPuertas(plantas, puertas) {
+
+                for (let i = 0; i < plantas; i++) {
+
+                    let planta = [];
+
+                    for (let j = 0; j < puertas; j++) {
+
+                        planta.push({ propietario: '' });
+                    }
+                    this.plantas.push(planta);
+                }
+            }
+
+            modificarNumero(numero) {
+
+                this.numero = numero;
+            }
+
+            modificarCalle(calle) {
+
+                this.calle = calle;
+            }
+
+            modificarCP(nuevoCP) {
+
+                this.cp = nuevoCP;
+            }
+
+            imprimirCalle(calle) {
+
+                document.write(`La calle del edificio es: ${this.calle}`);
+                        }
+            imprimirNumero(numero) {
+                document.write(`El número de edificio es: ${this.numero}`);
+            }
+            imprimirCP(cp) {
+                document.write(`El código postal del edificio es: ${this.cp}`);
+            }
+
+            agregarPropietario(nombre,planta,puerta){
+
+                if (this.plantas[planta - 1]&&this.plantas[planta - 1][puerta - 1]) {
+
+                    this.plantas[planta - 1][puerta - 1].propietario = nombre;
+
+                    document.write(`${nombre} es ahora el propietario de la puerta ${puerta} de la planta ${planta}`);
+
+                } else {
+
+                    document.write(`No se ha podido agregar el elemento.`)
+                }
+            }
+
+            imprimirPlantas(){
+                for (let planta =0;planta<this.plantas.length;planta++){
+
+                    for (let puerta=0;puerta<this.plantas[planta].length; puerta++) {
+
+                        let propietario=this.plantas[planta][puerta].propietario;
+
+                        let plantaNumero=planta+1;
+
+                        let puertaNumero=puerta+1;
+
+                        if(propietario){
+                            document.write(`La propiedad en la planta ${plantaNumero} y puerta ${puertaNumero}
+                            pertenece a ${propietario}<br>`);
+
+                        }
+                    }
+                }
+                
+            }
+
+        }
+
+
+
+        let edificioA = new Edificio("Garcia Prieto", 58, 15706);
+
+        let edificioB = new Edificio("Camino Caneiro", 59, 32004);
+
+        let edificioC = new Edificio("San Clemente", "S/N", 15705);
+
+            edificioA.imprimirCP(); document.write("<br>");
+
+            edificioC.imprimirCalle(); document.write("<br>");
+
+            edificioB.imprimirCalle(); document.write(" "); edificioB.imprimirNumero();
+
+
+    edificioA.agregarPlantasPuertas(2, 3);
+
+    edificioA.agregarPropietario("Jose Antonio Lopez", 1, 1);
+
+    edificioA.agregarPropietario("Luisa Martinez", 1, 2);
+
+    edificioA.agregarPropietario("Marta Castellon", 2, 3);
+
+    edificioA.agregarPropietario("Marta Castellon", 2, 3);
+
+    edificioA.agregarPropietario("Antonio Pereira", 2, 2);
+    
+    document.write("<br>");
+
+    edificioA.agregarPlantasPuertas(1,0);
+    edificioA.agregarPropietario("Juan Sanchez", 3, 2);
+
+    edificioA.imprimirPlantas();
+
+
+
+    </script>
+</body>
+
+</html>
