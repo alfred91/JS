@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4</title>
+</head>
+<body>
+    <script>
+
+        class Inmueble{
+
+            constructor(direccion,cp,localidad,provincia,metros2,precio){
+
+                this.direccion = direccion;
+                this.cp = cp;
+                this.localidad = localidad;
+                this.provincia = provincia;
+                this.metros2 = metros2;
+                this.precio = precio;
+                this.descuento = "";
+            }
+
+            infoPantalla(){
+                document.write(this.direccion);
+                document.write(this.cp);
+                document.write(this.localidad);
+                document.write(this.provincia);
+                document.write(this.metros2);
+                document.write(this.precio);
+                document.write(this.descuento);
+
+            }
+            descuento(){
+                let descuento=parseInt(prompt("Introduce el descuento % "));
+                this.precio=this.precio-(this.precio*descuento/100);
+                this.infoPantalla();
+            
+                return descuento;
+            }
+
+
+
+        }
+        let Inmueble = new Inmueble("Calle 123", "12345", "Barcelona", "Castellón", 1000, 100000,descuento);
+        infoPantalla(Inmueble);
+
+
+
+
+    </script>
+</body>
+</html>

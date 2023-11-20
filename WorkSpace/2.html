@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2</title>
+  </head>
+  <body>
+    <script>
+
+      class Banner {
+        
+        constructor(banners) {
+          this.banners = banners;
+          this.index = 0;
+          this.maxIndex = this.banners.length - 1;
+        }
+
+        mostrarBanner() {
+          document.body.innerHTML = this.banners[this.index];
+        }
+
+        siguiente() {
+          if (this.index < this.maxIndex) {
+            this.index++;
+          } else {
+            this.index = 0;
+          }
+          this.mostrarBanner();
+        }
+      }
+
+      const banners = [
+        '<div style="background-color:red;width:100%;height:100px;">Banner 1</div>',
+        '<div style="background-color:green;width:100%;height:100px;">Banner 2</div>',
+        '<div style="background-color:blue;width:100%;height:100px;">Banner 3</div>',
+      ];
+
+      const miBanner = new Banner(banners);
+      miBanner.mostrarBanner();
+
+      setInterval(() => {
+        miBanner.siguiente();
+      }, 3000);
+      
+    </script>
+  </body>
+</html>
