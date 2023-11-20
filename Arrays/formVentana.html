@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Color de Fondo</title>
+</head>
+<body>
+
+  <form id="miFormulario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="colorFondo">Color de Fondo:</label>
+    <input type="color" id="colorFondo">
+
+    <button type="button" onclick="abrirNuevaVentana()">Abrir Nueva Ventana</button>
+  </form>
+
+  <script>
+    function abrirNuevaVentana() {
+
+        var nombre = document.getElementById('nombre').value;
+      var email = document.getElementById('email').value;
+      var colorFondo = document.getElementById('colorFondo').value;
+
+      var contenidoVentana = `
+        <h1 style="background-color: ${colorFondo};">Información del Formulario</h1>
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Email:</strong> ${email}</p>
+      `;
+
+      var nuevaVentana = window.open('', 'NuevaVentana', 'width=400,height=300');
+      nuevaVentana.document.write(contenidoVentana);
+    }
+  </script>
+
+</body>
+</html>

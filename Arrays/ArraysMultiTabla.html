@@ -65,7 +65,7 @@
         document.write("</table>");
 
 
-        for (let i = 0; i < poblaciones.length; i++) {
+        for ( i = 0; i < poblaciones.length; i++) {
 
             mayor = temperaturas[i][3];
             if (temperaturas[i][3] > mayor);
@@ -80,7 +80,7 @@
 
         let temperaturaMediaAbril = 0;
 
-        for (let i = 0; i < temperaturas.length; i++) {
+        for ( i = 0; i < temperaturas.length; i++) {
             temperaturaMediaAbril += temperaturas[i][4];
         }
 
@@ -91,9 +91,9 @@
 
         // Calcular y mostrar la localidad con la peor temperatura media
         let localidadPeorMedia = "";
-        let temperaturaPeorMedia = Infinity;
+        let temperaturaPeorMedia = "Infinity";
 
-        for (let i = 0; i < temperaturas.length; i++) {
+        for ( i = 0; i < temperaturas.length; i++) {
             let media = (temperaturas[i][1] + temperaturas[i][2] +
                 temperaturas[i][3] + temperaturas[i][4]) / 4;
 

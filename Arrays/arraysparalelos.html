@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, th,td{
+            border:2px solid black;
+        }
+        table{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let profesores = ["Ana Vicente", "Jose Javier Guillen", "Catalina Flores"];
+        let modulos = ["Diseño de Aplicaciones", "Servidor", "Cliente"];
+        let alumnos = [7, 8, 7];
+        function imprimeDatos(indice) {
+            document.write("<br> Elprofesor " + profesores[indice] + " del modulo " + modulos[indice] + " tiene " + alumnos[indice] + "alumnos");
+        }
+        for (let i = 0; i < profesores.length; i++) {
+            imprimeDatos(i);
+        }
+        //si utilzamos array multidimensional//
+        let profesoresMultidimensional = [["Ana Vicente", "Despliegue de Aplicaciones", 7],
+        ["Jose Javier Guillen", "Servidor", 8],
+        ["Catalina Flores", "Cliente", 7]]
+        function imprime() {
+            profesoresMultidimensional.forEach(element => {
+                document.write("<br>el profesor " + element );
+
+            });
+        }
+        imprime();
+        function imprime2() {
+            document.write("<table>");
+            document.write("<tr><th>Profesor</th><th>Modulo</th><th>Alummnos</th></tr>");
+            for(let i=0;i<profesoresMultidimensional.length;i++){
+                document.write("<tr>")
+                    for(let j=0;j<profesoresMultidimensional[i].length;j++){
+                        document.write("<td>"+profesoresMultidimensional[i][j]+"</td>")
+                    }
+                    document.write("</tr>");
+            }
+            document.write("</table>");
+
+
+
+        }
+        imprime2();
+       
+        
+    </script>
+</body>
+
+
+</html>

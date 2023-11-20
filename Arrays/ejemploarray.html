@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let animales=["Perro","gato","conejo","Caballo"];
+        //acceso a los ellemntos del array//
+        animales.forEach(element => {document.write(element+"<br>")
+            
+        });
+        //propiedades//length
+        document.write("El array consta de "+ animales.length+ "Elementos");
+        document.write("<br> es un array "+Array.isArray(animales));
+        //toString():convierte el array a cadena
+        document.write("<br>El array de tipo string es: "+animales.toString());
+        //join("<separador>")convierte el array a cadena separada por el separador
+        document.write("<br>El array con join es: "+animales.join("-"));
+        //metodos para añadir , extraer o borrar elementos
+        //pop() y shift:extraer el último y el primer elemento respectivasmente y lo guarda en una variable
+        let ultimo=animales.pop();
+        let primero=animales.shift();
+        document.write("<br>El ultimo elemento es "+ ultimo + " y el primero es "+ primero);
+        document.write("<br>Despues de sacar el ultimo " +ultimo +" y el primero "+ primero+ " quedan " + animales.toString() + " y el nuevo tamaño del array es :"+ animales.length);
+
+        //delete nombreArray[<indice>]:elimina el elemento y lo transforma a undefined
+        //push(<elemento>)y unshift(<elemento>): añade un elemento al final y al principio del arrray
+        animales.push("elefante");
+            document.write("<br>El elemento ultimo es "+ animales[animales.length-1]);
+        animales.unshift("buho");
+        document.write("<br>El primer elemto del array es "+ animales[0]);
+        document.write("<br>"+animales.toString());
+        //splice(<posicion insertar/borrar>,<elemento a borrar>,[<elementos a añadir separador por comas>])
+        animales.splice(0,animales.length,"vaca","toro","cabra");//borra el array entero e inserta los nuevos elementos
+        document.write("<br>Depues de borrar el array entero  quedaria: "+ animales.toString());
+        //slice(<ini>[,<fin>]): devuelve un subarray desde la posicionindicada hasta (sin incluir) la final (no es obligatoria)
+        let subarrayanimales=animales.slice(0,2);
+        document.write("<br>El nuevo array es : "+subarrayanimales.toString());
+        //concat(<listade arrays separados por comas>):une el array inicial con un segundo array
+        let ani=["león","jirafa","león"];
+        let completo= animales.concat(ani);
+        //let completo=[animales,...ani]//es lo mismo que usar concat
+        document.write("<br> el array completo es :" + completo.toString());
+        //metodos para buscar:
+        //indexOf(<elemnto>[,pos])y ilastIndexOf(<elemnto>[,pos]) devuelve la primera o última posicion de un elemento respectivamente; podemos pasarle a partir de que elemento buscara
+        document.write("<br>La primera posicion de  Leon  es :" + completo.indexOf("león"))  ;  
+        document.write("<br>La ultima posicion de  Leon  es :" + completo.lastIndexOf("león")) ; 
+        //metodo para ordenar
+        //reverse()invierte el orden de un array
+        //sort() : ordena un array;
+        completo.reverse();
+        document.write("<br> el ordeninvertido es : "+ completo.toString());
+        completo.sort();
+        document.write("<br> el array ordenados es : "+ completo.toString());
+
+
+    </script>
+</body>
+</html>
