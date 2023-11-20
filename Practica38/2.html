@@ -8,23 +8,25 @@
 <body>
     <script>
 
-        var nota1 = parseFloat(prompt("Nota 1: "));
-        var nota2 = parseFloat(prompt("Nota 2: "));
-        var nota3 = parseFloat(prompt("Nota 3: "));
+        let nota1 = parseFloat(prompt("Nota 1: "));
+        let nota2 = parseFloat(prompt("Nota 2: "));
+        let nota3 = parseFloat(prompt("Nota 3: "));
 
-        var media=((nota1+nota2+nota3)/3);
-
-        function resultado(media){
-
-            if (media>=5) {
-                document.write("Aprobado con un "+media);
+        if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+            document.write("Ingresa notas válidas.");
         } else {
-            document.write("Suspenso con un "+media);
+            let media = ((nota1 + nota2 + nota3) / 3);
+
+            function resultado(media) {
+                if (media >= 5) {
+                    document.write("Aprobado con un " + media);
+                } else {
+                    document.write("Suspenso con un " + media);
+                }
+            }
+
+            resultado(media);
         }
-    }
- resultado(media);
-
-
     </script>
 </body>
 </html>
