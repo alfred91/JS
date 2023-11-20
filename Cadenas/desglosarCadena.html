@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=+, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function desglosarCadena(cadena){
+
+
+            let partes=cadena.split(':');
+
+            let cp=partes[0];
+            let apellidos=partes[1];
+            let email=partes[2];
+
+            let nombreServidor= obtenerNombreServidor(email);
+
+            document.write("CP: ", cp);
+            document.write("Apellidos: ", apellidos);
+            document.write("Email: ", email);
+            document.write("NombreServidor: ", nombreServidor);
+            }
+
+            function obtenerNombreServidor(email) {
+
+                let [usuario, dominio]= email.split('@');
+
+                return dominio;        
+        }
+
+        const cadenaInput = prompt("Ingrese la cadena en el formato 'CP:apellidos:email'");
+        desglosarCadena(cadenaInput);
+
+    </script>
+</body>
+</html>

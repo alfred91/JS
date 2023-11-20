@@ -8,22 +8,17 @@
 <body>
     <script>
 
-        // Solicitar al usuario que ingrese una serie de palabras
         let cadena = prompt("Introduce una serie de palabras separadas por espacios:");
 
-        // Dividir la entrada en un array de palabras
         let palabras = cadena.split(" ");
 
-        // Crear una nueva ventana
         let ventana = window.open("", "Resultado", "width=400, height=300");
 
-        // Construir el contenido de la nueva ventana
         let contenido = "<p>La primera palabra ingresada es: " + palabras[0] + "</p>" +
                         "<p>La última palabra ingresada es: " + palabras[palabras.length - 1] + "</p>" +
                         "<p>El número de palabras en el array es: " + palabras.length + "</p>" +
                         "<p>Todas las palabras ordenadas alfabéticamente: " + palabras.sort().join(", ") + "</p>";
 
-        // Asignar el contenido a la nueva ventana
         ventana.document.body.innerHTML = contenido;
 
     </script>

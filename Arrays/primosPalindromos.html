@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+function esPrimo(num) {
+  if (num < 2) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
+function esPalindromo(num) {
+  const strNum = num.toString();
+  const reverseStr = strNum.split('').reverse().join('');
+  return strNum === reverseStr;
+}
+
+function encontrarPrimosPalindromos() {
+  const primosPalindromos = [];
+
+  for (let i = 1; i <= 100000; i++) {
+    if (esPrimo(i) && esPalindromo(i)) {
+      primosPalindromos.push(i);
+    }
+  }
+
+  return primosPalindromos;
+}
+
+const resultado = encontrarPrimosPalindromos();
+
+document.write(resultado);
+
+
+    </script>
+</body>
+</html>

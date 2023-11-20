@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*function Coche(marca,combustible){
+            this.marca=marca;
+            this.combustible=combustible;
+            this.cantidad=0;
+            /*definimos el metodo rellenar Deposito*/
+            /*this.rellenarDeposito=function(litros){
+                this.cantidad=litros;
+            }
+
+        }*/
+        /* con class segun el estardad es6*/
+        class Coche{
+            constructor(marca,combustible){
+                this.marca=marca;
+                this.combustible=combustible;
+                this.cantidad=0;
+            }
+            rellenarDeposito(litros){
+                this.cantidad=litros;
+                }
+        }
+        let carlosCoche=new Coche("Audi A3","Gasolina");
+        let miCoche=new Coche("Wolsvagen Golf","hibrido");
+        miCoche.marca="tesla";
+        miCoche.combustible="electrico";
+        miCoche.rellenarDeposito(20);
+        document.write("El coche de Carlos es un "+ carlosCoche.marca +" y es de "+ carlosCoche.combustible+ "<br>");
+        document.write("Mi coche es un  "+ miCoche.marca +" y es de "+ miCoche.combustible+ " tiene "+ miCoche.cantidad+" litros<br>");
+        /*para recorrer las propiedades de un objeto*/
+        for( i in carlosCoche){
+            alert(carlosCoche[i]);
+        }
+
+    </script>
+</body>
+</html>

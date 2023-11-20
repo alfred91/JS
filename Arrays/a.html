@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Validación</title>
+  <style>
+
+  </style>
+</head>
+<body>
+
+  <h1>Formulario de Validación</h1>
+
+  <form id="formulario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required>
+ 
+    <label for="edad">Edad:</label>
+    <input type="number" min="1" id="edad" required>
+
+    <label for="aficion">Afición:</label>
+    <select id="aficion" required>
+      <option value="" disabled selected>Selecciona una afición</option>
+      <option value="Deporte">Deporte</option>
+      <option value="Música">Música</option>
+      <option value="Viajes">Viajes</option>
+    </select>
+
+    <button type="button" onclick="validarFormulario()">Validar</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    function validarFormulario() {
+     let nombre = document.getElementById('nombre').value;
+     let edad = document.getElementById('edad').value;
+     let aficion = document.getElementById('aficion').value;
+     let resultadoDiv = document.getElementById('resultado');
+
+      // Validar nombre
+      if (!nombre) {
+        resultadoDiv.innerHTML = "Por favor, introduce tu nombre.";
+        return;
+      }
+
+      // Validar edad
+      if (isNaN(edad) || parseInt(edad) <= 18) {
+        resultadoDiv.innerHTML = "Debes ser mayor de 18 años.";
+        return;
+      }
+
+      // Validar afición
+      if (!aficion) {
+        resultadoDiv.innerHTML = "Selecciona una afición.";
+        return;
+      }
+
+      // Crear nueva ventana de validación
+     let nuevaVentana = window.open('', 'Validación de formulario', 'width=500,height=500');
+      nuevaVentana.document.write('<h1>Bienvenido, ' + nombre + ' (' + edad + ' años)</h1>');
+      nuevaVentana.document.body.style.backgroundColor = 'lightblue';
+    }
+  </script>
+
+</body>
+</html>

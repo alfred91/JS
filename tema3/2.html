@@ -7,28 +7,20 @@
 </head>
 <body>
     <script>
-
-        function diaCorto(numeroDia){
-
-            const diaSemana=["Dom","Lun","Mar","Mie","Jue","Vie","Sab"];
-
-            if (numeroDia>=0 && numeroDia<=6){
-
+        const diaSemana = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
+        const numeroDiaActual = new Date().getDay();
+        
+        function diaCorto(numeroDia) {
+            if (numeroDia >= 0 && numeroDia <= 6) {
                 return diaSemana[numeroDia];
-
             } else {
-
                 return "Numero no válido";
             }
         }
 
-        const numeroDiaActual=new Date().getDay();
-
-        const nombreDiaActual=diaCorto(numeroDiaActual);
+        const nombreDiaActual = diaCorto(numeroDiaActual);
 
         document.write(nombreDiaActual);
-
     </script>
-    
 </body>
 </html>

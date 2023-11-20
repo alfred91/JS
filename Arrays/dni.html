@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1</title>
+</head>
+<body>
+    <script>
+        let dnisArray = [];
+
+        function solicitarDNI() {
+            let dni = prompt("Introduce tu DNI");
+
+            if (dni === "-1") {
+                clearInterval(intervalo);
+                mostrarDNIs();
+            } else {
+                dnisArray.push(dni);
+            }
+        }
+
+        function obtenerLetraDNI(numeroDNI) {
+            const letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+            return letras.charAt(numeroDNI % 23);
+        }
+
+        function mostrarDNIs() {
+            let letrasDNIs = dnisArray.map(dni => {
+                let numeroDNI = parseInt(dni, 10);
+                let letra = obtenerLetraDNI(numeroDNI);
+                return letra;
+            });
+
+            document.write("Letras de los DNIs introducidos: " + letrasDNIs.join(", "));
+        }
+
+        let intervalo = setInterval(solicitarDNI, 2000);
+    </script>
+</body>
+</html>

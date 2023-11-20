@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+function calcularLetraDNI(numero) {
+  const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+  const indice = numero % 23;
+  return letras.charAt(indice);
+}
+
+function generarDNIsConLetra(letra) {
+  const dniList = [];
+  for (let i = 1; i <= 999; i++) {
+    const dni = i.toString().padStart(3, '0') + calcularLetraDNI(i);
+    dniList.push(dni);
+  }
+  return dniList.filter(dni => dni.endsWith(letra));
+}
+
+const letra = prompt('Introduce una letra de la A a la Z:').toUpperCase();
+
+const dniListConLetra = generarDNIsConLetra(letra);
+document.write('Cantidad de DNIs con letra', letra + ': ', dniListConLetra.length);
+document.write('<br>Lista de DNIs con letra', letra + ': ', dniListConLetra.join(', '));
+
+    </script>
+</body>
+</html>
