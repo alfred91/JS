@@ -8,22 +8,28 @@
 <body>
     <script>
 
-        let sumaNumero = 0;
+        function calcularMedia() {
+            let sumaNumero = 0;
 
-        for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 5; i++) {
+                let numero = parseInt(prompt("Introduce un numero: "));
 
-            let numero = parseInt(prompt("Introduce un numero: "));
-
-            // Check if the input is a valid number
-            if (!isNaN(numero)) {
-                sumaNumero += numero;
-            } else {
-                alert("Introduce un numero");
+                // Check if the input is a valid number
+                if (!isNaN(numero)) {
+                    sumaNumero += numero;
+                } else {
+                    alert("Introduce un numero");
+                    // Decrement i to repeat the current iteration
+                    i--;
+                }
             }
+
+            return sumaNumero / 5;
         }
 
-        document.write("La media es: "+(sumaNumero/5));
-        
+        let media = calcularMedia();
+        document.write("La media es: " + media);
+
     </script>
 </body>
 </html>
