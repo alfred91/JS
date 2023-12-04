@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Plantilla ejercicio 3</title>
+    <script>
+      function seleccionarTodo() {
+        document.getElementsByName("item").forEach(function (input) {
+          input.checked = true;
+        });
+      }
+      function deseleccionarTodo() {
+        document.getElementsByName("item").forEach(function (input) {
+          input.checked = false;
+        });
+      }
+
+      function meterArray() {
+        let palabras = ["Esto", "es", "un", "texto", "de", "prueba"];
+        let textarea = document.querySelector("textarea");
+
+        document.getElementsByName("item").forEach(function (input, index) {
+          if (input.checked) {
+            let palabraSeleccionada = palabras[index];
+            if (!textarea.value.includes(palabraSeleccionada)) {
+              textarea.value += palabraSeleccionada + "\n";
+            }
+          }
+        });
+      }
+    </script>
+    <style>
+      div#capa {
+        border: 1px solid #666;
+        padding: 10px;
+        margin: 10px 100px;
+        background-color: beige;
+        opacity: 0.8;
+        float: left;
+        width: 300px;
+      }
+
+      div#contenedor {
+        margin: 0 auto;
+        width: 800px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="contenedor">
+      <div id="capa">
+        <form name="formulario">
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+
+          <input
+            type="button"
+            onclick="meterArray()"
+            value="Ver palabras"
+          /><br />
+          <br />
+
+          <input
+            type="checkbox"
+            id="item"
+            onclick="seleccionarTodo()"
+          />Seleccionar todos<br />
+
+          <input
+            type="checkbox"
+            id="item"
+            onclick="deseleccionarTodo()"
+          />Deseleccionar todos<br />
+          <br />
+          <input type="checkbox" name="item" value="1" />Esto
+          <br />
+          <input type="checkbox" name="item" value="2" />es
+          <br />
+          <input type="checkbox" name="item" value="3" />un
+          <br />
+          <input type="checkbox" name="item" value="4" />texto
+          <br />
+          <input type="checkbox" name="item" value="5" />de
+          <br />
+          <input type="checkbox" name="item" value="6" />prueba
+          <br />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

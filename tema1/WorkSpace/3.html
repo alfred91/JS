@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+    <link rel="stylesheet" href="css/3.css">
+</head>
+<body>
+    <script>
+        alunmnos=['Alumno','Cliente','Servidor','Diseño','Despliegue'];
+        notas=[
+            ['Pilar',4,8,9.3,10],
+            ['Ismael',5,9,8.8,10],
+            ['Maria',10,9.8,8,9],
+            ['Francisco',9.6,8,9,9],
+            ['Manuel',8,6,3.8,8],
+            ['Pablo',7,6.7,6.8,8]
+        ];
+
+        document.write("<table>");
+        document.write("<tr>");
+
+        for(let i = 0; i < alunmnos.length; i++){
+            document.write("<th>"+alunmnos[i]+"</th>");
+        }
+
+        document.write("<th>Nota media</th>");
+        document.write("</tr>");
+
+        let mayorMedia = 0;
+        let alumnoMayorMedia = '';
+
+        for (let i = 0; i < notas.length; i++) {
+            document.write("<tr><td>" + notas[i][0] + "</td>");
+            document.write("<td>" + notas[i][1] + "</td>");
+            document.write("<td>" + notas[i][2] + "</td>");
+            document.write("<td>" + notas[i][3] + "</td>");
+            document.write("<td>" + notas[i][4] + "</td>");
+
+            let media = (notas[i][1] + notas[i][2] + notas[i][3] + notas[i][4]) / 4;
+            document.write("<td>" + media + "</td>");
+
+            if (media > mayorMedia) {
+                mayorMedia = media;
+                alumnoMayorMedia = notas[i][0];
+            }
+
+            document.write("</tr>");
+        }
+        
+
+        document.write("</table>");
+
+        document.write("<p>La mayor nota media es: " + mayorMedia + " corresponde a " + alumnoMayorMedia + "</p>");
+
+        let mayorCliente = 0;
+        let alumnoMayor = '';
+
+        for (let i = 0; i < notas.length; i++) {
+            if (notas[i][1] > mayorCliente) {
+                mayorCliente = notas[i][1];
+                alumnoMayor = notas[i][0];
+            }
+        }
+
+        document.write("<p>La nota mas alta en Cliente es: " + mayorCliente + " corresponde a " + alumnoMayor + "</p>");
+
+        let mediaDespliegue = 0;
+        let alumnoDespliegue = '';
+
+        for (let i = 0; i < notas.length; i++) {
+
+
+            if (notas[i][4] > mediaDespliegue) {
+
+                mediaDespliegue = notas[i][4];
+
+                alumnoDespliegue = notas[i][0];
+            }
+        }
+
+        document.write("<p>La nota media en Despliegue es: " + mediaDespliegue);
+
+
+</script>
+</body>
+</html>

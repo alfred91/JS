@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Plantilla Ejercicio 1</title>
+    <script>
+      function seleccionarTodo() {
+        document.getElementsByName("item").forEach(function (input) {
+          input.checked = true;
+        });
+      }
+      function deseleccionarTodo() {
+        document.getElementsByName("item").forEach(function (input) {
+          input.checked = false;
+        });
+      }
+    </script>
+    <style>
+      div#capa {
+        border: 1px solid #666;
+        padding: 10px;
+        margin: 10px 150px;
+        background-color: beige;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="capa">
+      <form name="formulario">
+        <input
+          type="checkbox"
+          id="item"
+          name="item"
+          onclick="seleccionarTodo()"
+        />Seleccionar todos
+        <input
+          type="checkbox"
+          id="item"
+          onclick="deseleccionarTodo()"
+        />Deseleccionar todos<br />
+        <input type="checkbox" name="item" value="1" />Item1 <br />
+        <input type="checkbox" name="item" value="2" />Item2 <br />
+        <input type="checkbox" name="item" value="3" />Item3 <br />
+        <input type="checkbox" name="item" value="4" />Item4 <br />
+        <input type="checkbox" name="item" value="5" />Item5 <br />
+        <input type="checkbox" name="item" value="6" />Item6 <br />
+        <input type="checkbox" name="item" value="7" />Item7 <br />
+      </form>
+    </div>
+  </body>
+</html>
