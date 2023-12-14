@@ -1,116 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Plantilla ejercicio 5</title>
-    <script>
-      function checkLogin() {
-        let nombre = document.getElementById("nombre").value;
-        let pass = document.getElementById("pass").value;
-        let passver = document.getElementById("passver").value;
-        let email = document.getElementById("email").value;
-        let dni = document.getElementById("dni").value;
-        let telefono = document.getElementById("telefono").value;
-        let sexo = document.querySelector("input[name='sexo']:checked");
-        let tarjeta = document.getElementById("tarjeta").value;
-        let condiciones = document.getElementById("condiciones");
 
-        if (nombre === "") {
-          alert("Por favor, ingresa tu nombre.");
-          document.getElementById("nombre").focus();
-          return;
-        }
+<head>
+  <meta charset="UTF-8" />
+  <title>Plantilla ejercicio 5</title>
+  <script>
+    function checkLogin() {
+      let nombre = document.getElementById("nombre").value;
+      let pass = document.getElementById("pass").value;
+      let passver = document.getElementById("passver").value;
+      let email = document.getElementById("email").value;
+      let dni = document.getElementById("dni").value;
+      let telefono = document.getElementById("telefono").value;
+      let sexo = document.querySelector("input[name='sexo']:checked");
+      let tarjeta = document.getElementById("tarjeta").value;
+      let condiciones = document.getElementById("condiciones");
 
-        if (pass !== passver) {
-          alert("Las contraseñas no coinciden");
-          document.getElementById("pass").focus();
-          return;
-        }
-
-        if (!/^.+@.+\..+$/.test(email)) {
-          alert("Ingrese un correo electrónico válido");
-          document.getElementById("email").focus();
-          return;
-        }
-        let letraDni = /[a-zA-Z]$/;
-
-        // Verificar si el DNI cumple con el formato
-        if (!letraDni.test(dni)) {
-          alert("El DNI no tiene letra");
-          document.getElementById("dni").focus();
-          return;
-        }
-
-        if (!sexo) {
-          alert("Seleccione su género");
-          return;
-        }
-
-        if (!tarjeta) {
-          alert("Ingresar tipo de Tarjeta");
-        }
-
-        if (!condiciones.checked) {
-          alert("Acepta las condiciones de uso para continuar.");
-          return;
-        } else alert("Todo correcto");
-      }
-    </script>
-    <style>
-      div#capa {
-        padding: 10px;
-        margin: 10px 150px;
-        background-color: transparent;
-        opacity: 0.8;
+      if (nombre === "") {
+        alert("Por favor, ingresa tu nombre.");
+        document.getElementById("nombre").focus();
+        return;
       }
 
-      input {
-        margin: 5px 0;
+      if (pass !== passver) {
+        alert("Las contraseñas no coinciden");
+        document.getElementById("pass").focus();
+        return;
       }
-    </style>
-  </head>
 
-  <body>
-    <div id="capa">
-      <form action="" name="formulario">
-        <h2>Rellena tu CV</h2>
-        <label for="nombre">Nombre: *</label><br />
-        <input type="text" id="nombre" name="nombre" /><br />
-        <label for="apellidos">Apellidos: *</label><br />
-        <input type="text" id="apellidos" name="apellidos" /><br />
-        <label for="pass">Contraseña: *</label><br />
-        <input type="password" id="pass" name="pass" /><br />
-        <label for="passver">Repite contraseña: *</label><br />
-        <input type="password" id="passver" name="passver" /><br />
-        <label for="email">Email: *</label><br />
-        <input type="text" id="email" name="email" /><br />
-        <label for="dni">DNI: *</label><br />
-        <input type="text" id="dni" name="dni" /><br />
-        <label for="telefono">Teléfono: </label><br />
-        <input type="text" id="telefono" name="telefono" /><br />
-        <label for="sexo">Sexo: </label><br />
-        <input type="radio" id="sexo" name="sexo" value="Hombre" />Hombre
-        <input type="radio" id="sexo" name="sexo" value="Mujer" />Mujer<br />
-        <label for="tarjeta">Tarjeta: *</label><br />
-        <select name="tarjeta" id="tarjeta">
-          <option value="">Seleccione una opción</option>
-          <option value="visa">Visa</option>
-          <option value="mastercard">Mastercard</option>
-          <option value="paypal">Paypal</option></select
-        ><br />
-        <input
-          type="checkbox"
-          id="condiciones"
-          name="condiciones"
-          value="aceptadas"
-        />Acepto las condiciones de uso de esta web<br />
-        <input
-          type="button"
-          onclick="checkLogin()"
-          value="Ver palabras"
-        /><br />
-        <br />
-      </form>
-    </div>
-  </body>
+      if (!/^.+@.+\..+$/.test(email)) {
+        alert("Ingrese un correo electrónico válido");
+        document.getElementById("email").focus();
+        return;
+      }
+      let letraDni = /[a-zA-Z]$/;
+
+      // Verificar si el DNI cumple con el formato
+      if (!letraDni.test(dni)) {
+        alert("El DNI no tiene letra");
+        document.getElementById("dni").focus();
+        return;
+      }
+
+      if (!sexo) {
+        alert("Seleccione su género");
+        return;
+      }
+
+      if (!tarjeta) {
+        alert("Ingresar tipo de Tarjeta");
+      }
+
+      if (!condiciones.checked) {
+        alert("Acepta las condiciones de uso para continuar.");
+        return;
+      } else alert("Todo correcto");
+    }
+  </script>
+  <style>
+    div#capa {
+      padding: 10px;
+      margin: 10px 150px;
+      background-color: transparent;
+      opacity: 0.8;
+    }
+
+    input {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="capa">
+    <form action="" name="formulario">
+      <h2>Rellena tu CV</h2>
+      <label for="nombre">Nombre: *</label><br />
+      <input type="text" id="nombre" name="nombre" /><br />
+      <label for="apellidos">Apellidos: *</label><br />
+      <input type="text" id="apellidos" name="apellidos" /><br />
+      <label for="pass">Contraseña: *</label><br />
+      <input type="password" id="pass" name="pass" /><br />
+      <label for="passver">Repite contraseña: *</label><br />
+      <input type="password" id="passver" name="passver" /><br />
+      <label for="email">Email: *</label><br />
+      <input type="text" id="email" name="email" /><br />
+      <label for="dni">DNI: *</label><br />
+      <input type="text" id="dni" name="dni" /><br />
+      <label for="telefono">Teléfono: </label><br />
+      <input type="text" id="telefono" name="telefono" /><br />
+      <label for="sexo">Sexo: </label><br />
+      <input type="radio" id="sexo" name="sexo" value="Hombre" />Hombre
+      <input type="radio" id="sexo" name="sexo" value="Mujer" />Mujer<br />
+      <label for="tarjeta">Tarjeta: *</label><br />
+      <select name="tarjeta" id="tarjeta">
+        <option value="">Seleccione una opción</option>
+        <option value="visa">Visa</option>
+        <option value="mastercard">Mastercard</option>
+        <option value="paypal">Paypal</option>
+      </select><br />
+      <input type="checkbox" id="condiciones" name="condiciones" value="aceptadas" />Acepto las condiciones de uso de
+      esta web<br />
+      <input type="button" onclick="checkLogin()" value="Ver palabras" /><br />
+      <br />
+    </form>
+  </div>
+</body>
+
 </html>

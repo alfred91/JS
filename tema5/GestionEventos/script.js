@@ -2,30 +2,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const formulario = document.forms["formulario"];
   let intentos = parseInt(getCookie("intentos")) || 0;
   mostrarIntentos();
-  //MOSTRAMOS LOS INTENTOS Y AGREGAMOS UNA FUNCION QUE CUENTA CUANTAS VECES SE LE DA AL SUBMIT
 
+//MOSTRAMOS LOS INTENTOS Y AGREGAMOS UNA FUNCION QUE CUENTA CUANTAS VECES SE LE DA AL SUBMIT
   formulario.addEventListener("submit", function (event) {
     event.preventDefault();
     intentos++;
     setCookie("intentos", intentos, 1);
     mostrarIntentos();
 
-    if (validarFormulario()) {
+    if (validoarFormulario()) {
       if (confirm("¿Quieres enviar el formulario?")) {
         this.submit();
       }
     }
   });
-  //AÑADIMOS UN EVENTO DE ESCUCHA PARA CONVERTIR NOMBRE Y APELLIDOS A MAYUS CUANDO SE PIERDE EL FOCO
+
+//AÑADIMOS UN EVENTO DE ESCUCHA PARA CONVERTIR NOMBRE Y APELLIDOS A MAYUS CUANDO SE PIERDE EL FOCO
   formulario["nombre"].addEventListener("blur", convertirMayusculas);
   formulario["apellidos"].addEventListener("blur", convertirMayusculas);
 
   function convertirMayusculas(event) {
     event.target.value = event.target.value.toUpperCase();
   }
-  // FUNCION VALIDAR FORMULARIO
-  function validarFormulario() {
-    let valid = true;
+
+// FUNCION VALIDAR FORMULARIO
+  function validoarFormulario() {
+    let valido = true;
     const nombre = formulario["nombre"].value;
     const apellidos = formulario["apellidos"].value;
     const edad = formulario["edad"].value;
@@ -37,72 +39,81 @@ document.addEventListener("DOMContentLoaded", function () {
     const hora = formulario["hora"].value;
 
     let errores = "";
-    //NOMBRE Y APELLIDOS REQUERIDOS
+
+//NOMBRE Y APELLIDOS REQUERIDOS
     if (!nombre || !apellidos) {
-      errores += "El Nombre y Apellidos son datos obligatorios.\n";
+      errores += "El Nombre y Apellidos son datos obligatorios.<br>";
       formulario["nombre"].focus();
-      valid = false;
+      valido = false;
     }
-    // RANGO DE EDAD COHERENTE
+
+// RANGO DE EDAD COHERENTE
     if (!/^\d{0,3}$/.test(edad) || edad < 0 || edad > 105) {
-      errores += "La edad comprende un número entre 0 y 105.\n";
+      errores += "La edad comprende un número entre 0 y 105.<br>";
       formulario["edad"].focus();
-      valid = false;
+      valido = false;
     }
-    //VALIDACION DEL DNI
+
+//VALIDACION DEL DNI:
     if (!/^\d{8}-[A-Za-z]$/.test(nif)) {
-      errores += "NIF incorrecto. Formato: 8 dígitos, guión y letra.\n";
+      errores += "NIF incorrecto. Formato: 8 dígitos, guión y letra.<br>";
       formulario["nif"].focus();
-      valid = false;
+      valido = false;
     }
-    //VALIDACION DEL E-MAIL
+
+//VALIDACION DEL CORREO:
     if (!/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email)) {
-      errores += "Email no válido.\n";
+      errores += "Email no válido.<br>";
       formulario["email"].focus();
-      valid = false;
+      valido = false;
     }
-    //VALIDACION DE PROVINCIA
+
+//VALIDACION DE LA PROVINCIA:
     if (provincia === "0") {
-      errores += "Selecciona una provincia.\n";
+      errores += "Selecciona una provincia.<br>";
       formulario["provincia"].focus();
-      valid = false;
+      valido = false;
     }
-    //VALIDACION DE FECHA
+
+//VALIDACION DE LA FECHA:
     if (!/^\d{2}[\/-]\d{2}[\/-]\d{4}$/.test(fecha)) {
-      errores +=
-        "Fecha incorrecta. Formatos: dd/mm/aaaa o dd-mm-aaaa.\n";
+      errores += "Fecha incorrecta. Formatos: dd/mm/aaaa o dd-mm-aaaa.<br>";
       formulario["fecha"].focus();
-      valid = false;
+      valido = false;
     }
-    //VALIDACION DE TELEFONO
+
+//VALIDACION DEL TELEFONO:
     if (!/^\d{9}$/.test(telefono)) {
-      errores += "El telefono no contiene 9 dígitos.\n";
+      errores += "El telefono no contiene 9 dígitos.<br>";
       formulario["telefono"].focus();
-      valid = false;
+      valido = false;
     }
-    //VALIDACION DE LA HORA
+
+//VALIDACION DE LA HORA:
     if (!/^\d{2}:\d{2}$/.test(hora)) {
-      errores += "La hora no es correcta. Formato: hh:mm.\n";
+      errores += "La hora no es correcta. Formato: hh:mm.<br>";
       formulario["hora"].focus();
-      valid = false;
+      valido = false;
     }
-    //MOSTRAR ERRORES SI HAY, SI NO ES CORRECTO
+
+//MOSTRAR ERRORES SI HAY, SI NO ES CORRECTO:
     if (errores) {
       document.getElementById("errores").innerHTML = errores;
     } else {
       document.getElementById("errores").innerHTML = "";
     }
-
-    return valid;
+    return valido;
   }
-  // ESTABLECER LA COOKIE
+
+// ESTABLECER LA COOKIE:
   function setCookie(nombre, valor, dias) {
     const d = new Date();
     d.setTime(d.getTime() + dias * 24 * 60 * 60 * 1000);
     let expires = "expires=" + d.toUTCString();
     document.cookie = nombre + "=" + valor + ";" + expires + ";path=/";
   }
-  // LLAMAR A LA COOKIE
+
+// LLAMAR A LA COOKIE:
   function getCookie(nombre) {
     let name = nombre + "=";
     let ca = document.cookie.split(";");
@@ -117,7 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     return "";
   }
-  //MOSTRAR EL NUMERO DE INTENTOS
+
+//MOSTRAR EL NUMERO DE INTENTOS:
   function mostrarIntentos() {
     document.getElementById("intentos").innerHTML =
       "Intento de Envíos del formulario: " + intentos;

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Validación</title>
+    <script src="validacion.js"></script>
+</head>
+<body>
+    <form id="miFormulario">
+        Nombre: <input type="text" id="nombre"><br>
+        Apellidos: <input type="text" id="apellidos"><br>
+        Edad: <input type="text" id="edad"><br>
+        NIF: <input type="text" id="nif"><br>
+        E-Mail: <input type="text" id="email"><br>
+        Provincia: <select id="provincia">
+            <option value="">Seleccione...</option>
+            <option value="madrid">Madrid</option>
+            <!-- Más opciones aquí -->
+        </select><br>
+        Matrícula: <input type="text" id="matricula"><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <div id="intentos"></div>
+    <div id="errores"></div>
+</body>
+</html>
