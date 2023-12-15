@@ -1,80 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Plantilla ejercicio2</title>
-    <script>
-      function seleccionarTodo() {
-        document.getElementsByName("item").forEach(function (input) {
-          input.checked = true;
-        });
-      }
-      function deseleccionarTodo() {
-        document.getElementsByName("item").forEach(function (input) {
-          input.checked = false;
-        });
-      }
 
-      function meterArray() {
-        let personas = ["pepe", "lola", "juan", "lucas", "lorena", "asunta"];
-        let textarea = document.querySelector("textarea");
+<head>
+  <meta charset="UTF-8" />
+  <title>Plantilla ejercicio2</title>
+  <script>
+    function seleccionarTodo() {
+      document.getElementsByName("item").forEach(function (input) {
+        input.checked = true;
+      });
+    }
+    function deseleccionarTodo() {
+      document.getElementsByName("item").forEach(function (input) {
+        input.checked = false;
+      });
+    }
 
-        for (let i = 0; i < personas.length; i++) {
-          textarea.value += personas[i] + "\n";
-        }
-      }
-    </script>
-    <style>
-      div#capa {
-        border: 1px solid #666;
-        padding: 10px;
-        margin: 10px 100px;
-        background-color: beige;
-        opacity: 0.8;
-        float: left;
-        width: 300px;
-      }
-      div#contenedor {
-        margin: 0 auto;
-        width: 800px;
-      }
-    </style>
-  </head>
+    function meterArray() {
+      let personas = ["pepe", "lola", "juan", "lucas", "lorena", "asunta"];
+      let textarea = document.querySelector("textarea");
 
-  <body>
-    <div id="contenedor">
-      <div id="capa">
-        <form name="formulario">
-          <input
-            type="checkbox"
-            id="item"
-            name="item"
-            onclick="seleccionarTodo()"
-          />Seleccionar todos
-          <input
-            type="checkbox"
-            id="item"
-            onclick="deseleccionarTodo()"
-          />Deseleccionar todos<br />
-          <br />
-          <input type="checkbox" name="item" value="1" />Item1
-          <br />
-          <input type="checkbox" name="item" value="2" />Item2
-          <br />
-          <input type="checkbox" name="item" value="3" />Item3
-          <br />
-          <input type="checkbox" name="item" value="4" />Item4
-          <br />
-          <input type="checkbox" name="item" value="5" />Item5
-          <br />
-          <input type="checkbox" name="item" value="6" />Item6
-          <br />
-        </form>
-      </div>
-      <div id="capa2">
-        <input type="button" value="Enviar>>" onclick="meterArray()" />
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-      </div>
+      for (let i = 0; i < personas.length; i++) {
+        textarea.value += personas[i] + "\n";
+      }
+    }
+  </script>
+  <style>
+    div#capa {
+      border: 1px solid #666;
+      padding: 10px;
+      margin: 10px 100px;
+      background-color: beige;
+      opacity: 0.8;
+      float: left;
+      width: 300px;
+    }
+
+    div#contenedor {
+      margin: 0 auto;
+      width: 800px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="contenedor">
+    <div id="capa">
+      <form name="formulario">
+        <input type="checkbox" id="item" name="item" onclick="seleccionarTodo()" />Seleccionar todos
+        <input type="checkbox" id="item1" name="item1" onclick="deseleccionarTodo()" />Deseleccionar todos<br />
+        <br />
+        <input type="checkbox" name="item" value="1" />Item1
+        <br />
+        <input type="checkbox" name="item" value="2" />Item2
+        <br />
+        <input type="checkbox" name="item" value="3" />Item3
+        <br />
+        <input type="checkbox" name="item" value="4" />Item4
+        <br />
+        <input type="checkbox" name="item" value="5" />Item5
+        <br />
+        <input type="checkbox" name="item" value="6" />Item6
+        <br />
+      </form>
     </div>
-  </body>
+    <div id="capa2">
+      <input type="button" value="Enviar>>" onclick="meterArray()" />
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+    </div>
+  </div>
+</body>
+
 </html>
