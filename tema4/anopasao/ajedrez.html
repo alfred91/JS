@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablero de Ajedrez</title>
+    <style>
+        .tablero-ajedrez { border-collapse: collapse; width: 400px; height: 400px; }
+        .tablero-ajedrez td { border: 1px solid #333; width: 50px; height: 50px; }
+        .tablero-ajedrez .white { background-color: #c2c2c2; }
+        .tablero-ajedrez .black { background-color: #525252; }
+        .tablero-ajedrez img { width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <table class="tablero-ajedrez">
+        <tbody id="tablero">
+            <!-- El tablero será construido por JavaScript -->
+        </tbody>
+    </table>
+    <script src="ajedrez.js"></script>
+</body>
+</html>

@@ -74,10 +74,7 @@ function validarFormularioPregunta(event) {
   if (!/^[A-ZÁÉÍÓÚÑ][a-zA-ZáéíóúÁÉÍÓÚñÑ ,;.!?]*$/.test(questionName)) {
     alert("El nombre de la pregunta no es válido.");
     return;
-  }
-
-  // Aquí, agregar lógica adicional si es necesario
-}
+  }}
 
 // Validar formulario de administrador
 function validarFormularioAdmin(event) {

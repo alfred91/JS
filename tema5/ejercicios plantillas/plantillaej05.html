@@ -35,10 +35,13 @@
       }
       let letraDni = /[a-zA-Z]$/;
 
-      // Verificar si el DNI cumple con el formato
       if (!letraDni.test(dni)) {
         alert("El DNI no tiene letra");
         document.getElementById("dni").focus();
+        return;
+      }
+      if (isNaN(telefono) || telefono.length != 9) {
+        alert("Teléfono incorrecto. Ingresar solo números y tener 9 dígitos");
         return;
       }
 
@@ -88,10 +91,10 @@
       <label for="dni">DNI: *</label><br />
       <input type="text" id="dni" name="dni" /><br />
       <label for="telefono">Teléfono: </label><br />
-      <input type="text" id="telefono" name="telefono" /><br />
+      <input type="tel" id="telefono" name="telefono" /><br />
       <label for="sexo">Sexo: </label><br />
-      <input type="radio" id="sexo" name="sexo" value="Hombre" />Hombre
-      <input type="radio" id="sexo" name="sexo" value="Mujer" />Mujer<br />
+      <input type="radio" id="hombre" name="sexo" value="Hombre" />Hombre
+      <input type="radio" id="mujer" name="sexo" value="Mujer" />Mujer<br />
       <label for="tarjeta">Tarjeta: *</label><br />
       <select name="tarjeta" id="tarjeta">
         <option value="">Seleccione una opción</option>
