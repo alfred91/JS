@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Dinámica</title>
+</head>
+
+<body onload="cargarTabla()">
+
+    <script>
+        let filas = 1;
+        let columnas = 4;
+        let numero = 1;
+        let botonAdd = "<button id='add' onClick='addElemento()'>+</button>";
+        let botonRemove = "<button id='remove' onclick='removeElemento()'>-</button>";
+        function cargarTabla() {
+
+
+            document.write("<table border='1' id='tabla' cellPadding='35' cellSpacing='0'>");
+
+            for (let i = 0; i < filas; i++) {
+                document.write("<tr id='fila'>");
+
+                for (let j = 0; j < columnas; j++) {
+                    if (j != 3) {
+                        document.write("<td>" + numero++ + "</td>");
+
+                    } else {
+
+                        document.write("<td>" + botonRemove + " " + botonAdd + "</td>");
+                    }
+                }
+            }
+            document.write("</table");
+        }
+        function addElemento() {
+            let tabla = document.getElementById('tabla');
+            if(columnas===3){
+
+                document.write("<td>" + numero++ + "</td>");
+
+            } else {
+                document.write("<td>" + numero++ + "</td>")
+            }
+
+
+            }
+
+
+
+        
+        function removeElemento() {
+
+        }
+    </script>
+</body>
+
+</html>

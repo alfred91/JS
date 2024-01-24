@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Poblaciones</title>
+</head>
+
+<body>
+    <h1>Poblaciones</h1>
+    <ul id="listaPoblaciones">
+        <li>Vera</li>
+        <li>Cuevas del Almanzora</li>
+        <li>Garrucha</li>
+    </ul>
+    <button onclick="addPoblacion()">Añadir poblacion</button>
+    <button onclick="rmPoblacion()">Borrar poblacion</button>
+
+    <script>
+        function addPoblacion() {
+            let poblacion = prompt("Introduce el nombre de una poblacion:");
+            if (poblacion) {
+                let lista = document.getElementById('listaPoblaciones');
+                let li = document.createElement('li');
+                li.textContent = poblacion;
+                lista.appendChild(li);
+            }
+        }
+
+        function rmPoblacion() {
+            let indice = parseInt(prompt("Introduce el número del elemento que quieres eliminar:")) - 1;
+            let lista = document.getElementById('listaPoblaciones');
+
+            if (!isNaN(indice) && indice >= 0 && indice < lista.children.length) {
+
+                lista.removeChild(lista.children[indice]);
+
+            } else {
+                alert("Índice no válido.");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla dinamica</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        let filas = parseInt(prompt("Introduce el nº de filas:"));
+        let columnas = parseInt(prompt("Introduce el nº de columnas:"));
+        let numero = 0;
+        let table = document.createElement("table");
+        let td, tr;
+
+        for (let i = 0; i < filas; i++) {
+
+            tr = document.createElement("tr");
+
+            for (let j = 0; j < columnas; j++) {
+
+                td = document.createElement("td");
+                let contenido = document.createTextNode(++numero);
+                td.appendChild(contenido);
+                tr.appendChild(td);
+            }
+
+            table.appendChild(tr);
+
+        }
+
+        document.body.appendChild(table);
+    </script>
+</body>
+
+</html>
