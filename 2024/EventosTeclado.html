@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eventos de teclado</title>
     <style>
-        #divCentral {
-            text-align: center;
-            width: 500px;
-            height: 500px;
-            border: 2px solid black;
-            margin: 100px auto;
-            font-size: 250px;
-            line-height: 500px;
-        }
+      #divCentral {
+        text-align: center;
+        width: 500px;
+        height: 500px;
+        border: 2px solid black;
+        margin: 100px auto;
+        font-size: 250px;
+        line-height: 500px;
+      }
 
-        h1 {
-            text-align: center;
-        }
+      h1 {
+        text-align: center;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Pulsa una tecla</h1>
     <div id="divCentral"></div>
 
     <script>
-        document.addEventListener("keypress", function (event) {
-            let divCentral = document.getElementById("divCentral");
-            divCentral.innerText = event.key;
-        });
+      document.addEventListener("keypress", function (event) {
+        let divCentral = document.getElementById("divCentral");
+        divCentral.innerText = event.key;
+      });
     </script>
-</body>
-
+  </body>
 </html>

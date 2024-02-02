@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    window.onload = function inicio() {
+      document
+        .getElementById("llenarLista")
+        .addEventListener("click", llenarLista, false);
+      document
+        .getElementById("borrar")
+        .addEventListener("click", borrar, false);
+    };
+    function llenarLista() {
+      let lista = document.getElementById("lista");
+      let li = document.createElement("li");
+      let contenido = document.createTextNode(
+        prompt("Introduce una poblacion que quieras añadir")
+      );
+      li.appendChild(contenido);
+      lista.appendChild(li);
+    }
+    function borrar() {
+      /* Para borrar el ultimo elemento de una lista*/
+
+      /*let lista = document.getElementById("lista");
+      let ultimo = lista.firstElementChild;
+      lista.removeChild(ultimo);
+      */
+
+      /*para borrar un elemento en concreto  se puede hacere de diferente formas*/
+      /*opcion 1*/
+      /*
+      let lista = document.getElementById("lista");
+      
+      let li = document.getElementsByTagName("li");
+      let indice = prompt(
+        "Introduce el numero del elemento de la lista que desea borrar"
+      );
+        lista.removeChild(li[indice - 1]);
+        
+    */
+      /*opcion 2 :Jhonatan*/
+      /*let numero = prompt(
+        "introduce el numero del elemento de la lista que quieres borrar"
+      );
+      let lista = document.getElementById("lista");
+      lista.removeChild(lista.children[numero - 1]);
+      */
+      /* opcion 3:estela*/
+      let lista = document.getElementById("lista");
+      let elementos = lista.getElementsByTagName("li");
+      if (elementos.length != 0) {
+        let indice =
+          parseInt(prompt("introduce el elemento que deseas borrar")) - 1;
+        while (isNaN(indice) || indice > elementos.length || indice < 0) {
+          indice =
+            parseInt(prompt("introduce el elemento que deseas borrar")) - 1;
+        }
+        lista.removeChild(elementos[indice]);
+      }
+    }
+  </script>
+  <body>
+    <ol id="lista">
+      <li>Vera</li>
+      <li>Cuevas Del Almanzora</li>
+      <li>Garrucha</li>
+    </ol>
+    <input type="button" id="llenarLista" value="Añadir Población" />
+    <input type="button" id="borrar" value="Borrar Población" />
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Butacas de Cine</title>
+    <script>
+        window.onload = function () {
+            let sala = document.getElementById('sala');
+            let reservas = document.getElementById('reservas');
+            let reservarBtn = document.getElementById('reservar');
+            let f = 15;
+            let c = 11;
+            let seleccionadas = [
+                [5, 4], [5, 5], [5, 6], [7, 2], [7, 3],
+                [9, 7], [9, 8], [10, 5], [10, 6], [10, 7],
+                [11, 7], [13, 8]
+            ];
+            let butacasSeleccionadas = [];
+
+            function generarSala() {
+                for (let i = 0; i < f; i++) {
+                    for (let j = 0; j < c; j++) {
+                        let butaca = document.createElement('div');
+                        butaca.id = `${i},${j}`;
+                        butaca.classList.add('butaca');
+                        butaca.textContent = `${i},${j}`;
+
+                        if (j === c - 2 || j === c - 3 || (i < 5 && (j < 3 || j > 7))) {
+                            butaca.classList.add('nobutaca');
+                        } else if (seleccionadas.some(b => b[0] === i && b[1] === j)) {
+                            butaca.classList.add('ocupada');
+                        } else {
+                            butaca.classList.add('libre');
+                            butaca.addEventListener('click', function () {
+                                seleccionarButaca(i, j);
+                            });
+                        }
+
+                        sala.appendChild(butaca);
+                    }
+                }
+            }
+
+            function seleccionarButaca(fila, columna) {
+                let butaca = document.getElementById(`${fila},${columna}`);
+                if (butaca.classList.contains('libre')) {
+                    butaca.classList.remove('libre');
+                    butaca.classList.add('seleccion');
+                    butacasSeleccionadas.push([fila, columna]);
+
+                }
+            }
+
+            reservarBtn.addEventListener('click', function () {
+                butacasSeleccionadas.forEach(b => {
+                    let butaca = document.getElementById(`${b[0]},${b[1]}`);
+                    butaca.classList.remove('seleccion');
+                    butaca.classList.add('ocupada');
+                });
+                reservas.value = butacasSeleccionadas.map(b => `<${b[0]},${b[1]}>`).join(', ');
+                butacasSeleccionadas = [];
+            });
+
+            generarSala();
+        };
+
+
+
+
+    </script>
+    <style>
+        div#sala {
+            border: 10px 0 0 0;
+            border-top-style: solid;
+            -webkit-border-top-left-radius: 25px;
+            -webkit-border-top-right-radius: 25px;
+            -moz-border-radius-topleft: 25px;
+            -moz-border-radius-topright: 25px;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            border-color: black;
+            padding: 80px 0 0 0;
+            margin: 0px auto;
+            background-color: beige;
+            opacity: 0.8;
+            width: 400px;
+        }
+
+        .clearfix {
+            overflow: hidden;
+        }
+
+        div.pantalla {
+            background: black;
+            width: 100%;
+            min-height: 10px;
+        }
+
+        div.butaca {
+            border: 1px solid #ccc;
+            padding: 0;
+            margin: 5px;
+            width: 20px;
+            height: 20px;
+            float: left;
+            font-size: 0.5em;
+            text-align: center;
+        }
+
+        div.libre {
+            background: white;
+        }
+
+        div.ocupada {
+            background: grey;
+        }
+
+        div.seleccion {
+            background: red;
+        }
+
+        div.nobutaca {
+            border-color: beige;
+            visibility: hidden;
+        }
+
+        div#butacasUsuario {
+            margin: 0px auto;
+            text-align: center;
+            opacity: 0.8;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sala" class="clearfix">
+    </div>
+    <div id="butacasUsuario">
+        <input type="button" id="reservar" value="reservar">
+        <textarea id="reservas" cols="30" rows="3"></textarea>
+    </div>
+</body>
+
+</html>

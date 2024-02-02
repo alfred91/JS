@@ -1,0 +1,25 @@
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  border: 1px solid;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+}
+
+.blanco {
+  background-color: #fff;
+}
+
+.negro {
+  background-color: #696969;
+}
+
+.ficha {
+  font-size: 30px;
+  color: #000;
+  text-align: center;
+  line-height: 50px;
+}

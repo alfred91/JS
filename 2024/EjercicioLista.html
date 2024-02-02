@@ -1,64 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-    <ul id="ul">
-    </ul>
+  <body>
+    <ul id="ul"></ul>
 
     <button type="button" onclick="abrirPrompt()">Añadir un elemento</button>
-    <br>
+    <br />
     <button type="button" onclick="borrarPrimero()">Borrar 1º Elemento</button>
-    <button type="button" onclick="borrarUltimo()">Borrar Ultimo Elemento</button>
+    <button type="button" onclick="borrarUltimo()">
+      Borrar Ultimo Elemento
+    </button>
 
     <script>
-
-        function abrirPrompt() {
-
-            let texto = prompt("Ingrese un texto");
-            if (texto != null) {
-                agregarItem(texto);
-            }
+      function abrirPrompt() {
+        let texto = prompt('Escribe algo')
+        if (texto != null) {
+          agregarItem(texto)
         }
-        function agregarItem(texto) {
+      }
+      function agregarItem(texto) {
+        let nuevoLi = document.createElement('li')
+        let parrafo = document.createTextNode(texto)
+        let ul = document.getElementById('ul')
 
-            let li = document.createElement("li");
+        nuevoLi.appendChild(parrafo)
+        ul.appendChild(nuevoLi)
+      }
 
-            let parrafo = document.createTextNode(texto);
-
-            li.appendChild(parrafo);
-
-            let ul = document.getElementById("ul");
-
-            ul.appendChild(li);
-
+      function borrarPrimero() {
+        let ul = document.querySelector('#ul')
+        if (ul.childElementCount > 0) {
+          ul.removeChild(ul.children[0])
+        } else {
+          alert('No hay elementos para eliminar')
         }
+      }
+      function borrarUltimo() {
+        let ul = document.querySelector('#ul')
+        let li = ul.getElementsByTagName('li')
 
-        function borrarPrimero() {
-            let ul = document.querySelector("#ul")
-            if (ul.childElementCount > 0) {
-                ul.removeChild(ul.children[0])
-            } else {
-                alert('No hay elementos para eliminar');
-            }
+        if (li.length > 0) {
+          ul.removeChild(li[li.length - 1])
+        } else {
+          alert('No hay elementos para eliminar')
         }
-        function borrarUltimo() {
-            let ul = document.querySelector("#ul");
-            let elementoLista = ul.getElementsByTagName("li");
-
-            if (elementoLista.length > 0) {
-                ul.removeChild(elementoLista[elementoLista.length - 1]);
-            } else {
-                alert('No hay elementos para eliminar');
-            }
-        }
-
+      }
     </script>
-</body>
-
+  </body>
 </html>

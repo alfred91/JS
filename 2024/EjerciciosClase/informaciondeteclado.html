@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 500px;
+        height: 200px;
+        background-color: aquamarine;
+      }
+    </style>
+    <script>
+      window.onload = iniciar;
+      function iniciar() {
+        document.addEventListener("keyup", muestraInformacion, false);
+        document.addEventListener("keypress", muestraInformacion, false);
+        document.addEventListener("keydown", muestraInformacion, false);
+      }
+      function muestraInformacion(evento) {
+        document.getElementById("informacion").innerHTML =
+          "Tipo de evento: " +
+          "<br>" +
+          evento.type +
+          " propiedad keyCode: " +
+          evento.keyCode +
+          "<br>" +
+          " la propiedad CharCode:  " +
+          evento.charCode +
+          "<br>" +
+          " y  el caracter de la tecla pulsada es: " +
+          String.fromCharCode(evento.charCode) +
+          "<br>";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="informacion"></div>
+  </body>
+</html>

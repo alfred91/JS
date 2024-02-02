@@ -1,66 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablero Ajedrez</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            margin: 0 auto;
-            border: 1px solid;
-        }
-
-        td {
-            width: 50px;
-            height: 50px;
-        }
-
-        .blanco {
-            background-color: #fff;
-        }
-
-        .negro {
-            background-color: #696969;
-        }
-
-        .ficha {
-            font-size: 30px;
-            color: #000;
-            text-align: center;
-            line-height: 50px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tablero Ajedrez</title>
+  <link rel="stylesheet" a href="estilo.css" />
 </head>
 
-<body onload="crearTablero()">
-    <script>
-        function crearTablero() {
-            let tablero = document.createElement('table');
-            for (let i = 0; i < 8; i++) {
-                let row = document.createElement('tr');
-                for (let j = 0; j < 8; j++) {
-                    let cell = document.createElement('td');
-                    if ((i + j) % 2 === 0) {
-                        cell.classList.add('blanco');
-                    } else {
-                        cell.classList.add('negro');
-                    }
-                    row.appendChild(cell);
-                }
-                tablero.appendChild(row);
-            }
-            document.body.appendChild(tablero);
-        }
-
-  
-        function addFichas() {
-            
-        }
-
-
-    </script>
+<body onload="crearTablero(); addFichas();">
+  <script src="script.js"></script>
 </body>
 
 </html>

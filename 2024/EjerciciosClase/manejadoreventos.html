@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      tr,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+    <script>
+      window.onload = iniciar;
+      function iniciar() {
+        for (i = 0; i < document.getElementsByTagName("tr").length; i++) {
+          document
+            .getElementsByTagName("tr")
+            [i].addEventListener("mouseover", manejador, false);
+          document
+            .getElementsByTagName("tr")
+            [i].addEventListener("mouseout", manejador, false);
+        }
+        for (j = 0; document.getElementsByTagName("p").length; j++) {
+          document
+            .getElementsByTagName("p")
+            [j].addEventListener("click", manejador, false);
+        }
+      }
+      function manejador(evento) {
+        switch (evento.type) {
+          case "mouseover":
+            this.style.backgroundColor = "red";
+            break;
+          case "mouseout":
+            this.style.color = "white";
+            this.style.backgroundColor = "black";
+            break;
+          case "click":
+            alert(
+              "has pulsado el parrafo " +
+                evento.target.id +
+                "y el contenido del parrafo es " +
+                evento.target.textContent
+            );
+            break;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr id="fila1">
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr id="fila2">
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+      <tr id="fila3">
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+    </table>
+    <p id="parrafo1">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, quas non
+      adipisci explicabo odio dolores quam quos tenetur debitis omnis deserunt
+      reiciendis doloribus officia dignissimos consequatur ab eos consequuntur
+      aliquam!
+    </p>
+    <p id="parrafo2">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, quas non
+      adipisci explicabo odio dolores quam quos tenetur debitis omnis deserunt
+      reiciendis doloribus officia dignissimos consequatur ab eos consequuntur
+      aliquam!
+    </p>
+    <p id="parrafo3">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, quas non
+      adipisci explicabo odio dolores quam quos tenetur debitis omnis deserunt
+      reiciendis doloribus officia dignissimos consequatur ab eos consequuntur
+      aliquam!
+    </p>
+    <p id="parrafo4">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, quas non
+      adipisci explicabo odio dolores quam quos tenetur debitis omnis deserunt
+      reiciendis doloribus officia dignissimos consequatur ab eos consequuntur
+      aliquam!
+    </p>
+  </body>
+</html>

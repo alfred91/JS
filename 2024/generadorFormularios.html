@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Dinamico</title>
+  </head>
+  <body onload="cargarTabla()">
+    <script>
+      function cargarTabla() {
+        document.write(
+          '<table border="1">' +
+            "<thead><tr><th>Creador de Formulario Dinámico</th></tr></thead>" +
+            "<tbody><tr><td>" +
+            '<input type="button" value="Agregar Nombre" onclick="addNombre()">' +
+            " " +
+            '<input type="button" value="Agregar Password" onclick="addPassword()">' +
+            " " +
+            '<input type="button" value="Agregar Text Area" onclick="addTextArea()">' +
+            " " +
+            '<input type="button" value="Agregar Imagen" onclick="addImagen()">' +
+            " " +
+            '<input type="button" value="Agregar CheckBox" onclick="addCheckBox()">' +
+            " " +
+            '<input type="button" value="Agregar Radio" onclick="addRadio()">' +
+            " " +
+            '<input type="button" value="Agregar Submit" onclick="addSubmit()">' +
+            " " +
+            "</td></tr></tbody>" +
+            "</table>"
+        );
+      }
+      function addNombre() {
+        let nombreName = prompt("Add Nombre");
+        let label = document.createElement("label");
+        label.textContent = nombreName;
+
+        let input = document.createElement("input");
+        input.type = "text";
+        nombreName.name = nombreName;
+
+        let div = document.createElement("div");
+        div.appendChild(label);
+        div.appendChild(input);
+        document.body.appendChild(div);
+      }
+
+      function addPassword() {
+        let passwordName = prompt("Add Password");
+        let label = document.createElement("label");
+        label.textContent = passwordName;
+
+        let input = document.createElement("input");
+        input.type = "password";
+        input.name = passwordName;
+
+        let div = document.createElement("div");
+        div.appendChild(label);
+        div.appendChild(input);
+        document.body.appendChild(div);
+      }
+
+      function addTextArea() {
+        let textAreaName = prompt("¿Qué nombre le damos al textarea?");
+        let label = document.createElement("label");
+        label.textContent = textAreaName;
+
+        let textarea = document.createElement("textarea");
+        textarea.rows = 5;
+        textarea.cols = 40;
+        textarea.name = textAreaName;
+
+        let div = document.createElement("div");
+        div.appendChild(label);
+        div.appendChild(textarea);
+
+        document.body.appendChild(div);
+      }
+
+      function addImagen() {
+        let rutaImagen = prompt("Que ruta tiene la imagen?");
+        let label = document.createElement("label");
+        label.textContent = "Imagen: ";
+
+        let imagen = document.createElement("img");
+        imagen.src = rutaImagen;
+
+        let div = document.createElement("div");
+        div.appendChild(label);
+        div.appendChild(imagen);
+        document.body.appendChild(div);
+      }
+
+      function addCheckBox() {
+        let checkBoxName = prompt("Add Checkbox Nombre");
+        let label = document.createElement("label");
+        label.textContent = checkBoxName;
+
+        let input = document.createElement("input");
+        input.type = "checkbox";
+        checkBoxName.name = checkBoxName;
+
+        let div = document.createElement("div");
+        div.appendChild(label);
+        div.appendChild(input);
+        document.body.appendChild(div);
+      }
+
+      function addRadio() {
+        let radioName = prompt("Nombre del radio");
+        let label = document.createElement("label");
+        label.textContent = radioName;
+
+        let input = document.createElement("input");
+        input.type = "radio";
+        radioName.name = radioName;
+
+        let div = document.createElement("div");
+        div.appendChild(label);
+        div.appendChild(input);
+        document.body.appendChild(div);
+      }
+
+      function addSubmit() {
+        let botonName = prompt("Nombre boton");
+        let botonValue = prompt("Valor del boton");
+        let boton = document.createElement("input");
+        boton.type = "submit";
+        boton.name = botonName;
+        boton.value = botonValue;
+
+        document.body.appendChild(boton);
+      }
+    </script>
+  </body>
+</html>

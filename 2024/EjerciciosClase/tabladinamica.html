@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+      table,
+      tr,
+      td {
+        border: 1px solid black;
+      }
+
+      input {
+        max-width: 80px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      window.onload = function iniciar() {
+        document
+          .getElementById("add")
+          .addEventListener("click", addFila, false);
+        document
+          .getElementById("eliminar")
+          .addEventListener("click", eliminarFila, false);
+      };
+
+      function addFila() {
+        let td1 = document.createElement("td");
+        let valor1 = document.createTextNode(
+          document.getElementById("celda1").value
+        );
+        td1.appendChild(valor1);
+
+        let td2 = document.createElement("td");
+        let valor2 = document.createTextNode(
+          document.getElementById("celda2").value
+        );
+        td2.appendChild(valor2);
+
+        let td3 = document.createElement("td");
+        let valor3 = document.createTextNode(
+          document.getElementById("celda3").value
+        );
+        td3.appendChild(valor3);
+
+        let td4 = document.createElement("td");
+        let botonsuma = document.createElement("button");
+        botonsuma.appendChild(document.createTextNode("+"));
+        td4.appendChild(botonsuma);
+        botonsuma.addEventListener("click", addFila, false);
+
+        let boton = document.createElement("button");
+        boton.appendChild(document.createTextNode("-"));
+        td4.appendChild(boton);
+        boton.addEventListener("click", eliminarFila, false);
+
+        let fila = document.createElement("tr");
+        fila.appendChild(td1);
+        fila.appendChild(td2);
+        fila.appendChild(td3);
+        fila.appendChild(td4);
+        let padre = this.parentNode.parentNode;
+        document.getElementsByTagName("tbody")[0].insertBefore(fila, padre);
+      }
+
+      function eliminarFila() {
+        let fila = this.parentNode.parentNode;
+        fila.remove();
+      }
+    </script>
+    <table>
+      <tr id="1">
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>
+          <input type="button" value="+" class="add" id="add" /><input
+            type="button"
+            class="eliminar"
+            value="-"
+            id="eliminar"
+          />
+        </td>
+      </tr>
+    </table>
+    <form>
+      <label>celda1</label><input type="text" id="celda1" />
+      <label>celda2</label><input type="text" id="celda2" />
+      <label>celda3</label><input type="text" id="celda3" />
+    </form>
+  </body>
+</html>

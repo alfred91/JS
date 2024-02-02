@@ -2,59 +2,56 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla Dinámica</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabla Dinámica</title>
 </head>
 
-<body onload="cargarTabla()">
+<body onload="crearTabla()">
+  <script>
+    let numero = 0
 
-    <script>
-        let filas = 1;
-        let columnas = 4;
-        let numero = 1;
-        let botonAdd = "<button id='add' onClick='addElemento()'>+</button>";
-        let botonRemove = "<button id='remove' onclick='removeElemento()'>-</button>";
-        function cargarTabla() {
+    function crearTabla() {
+      let tabla = document.createElement('table')
+      tabla.border = 1
 
+      for (let i = 0; i < 4; i++) {
+        agregarFila(tabla)
+      }
+      document.body.appendChild(tabla)
+    }
 
-            document.write("<table border='1' id='tabla' cellPadding='35' cellSpacing='0'>");
+    function agregarFila(tabla) {
+      let fila = tabla.insertRow()
+      for (let j = 0; j < 4; j++) {
+        let celda = fila.insertCell()
+        if (j !== 3) {
+          numero++
+          celda.innerHTML = numero
+        } else {
+          let botonMenos = document.createElement('button')
+          botonMenos.textContent = '-'
+          botonMenos.onclick = function () {
+            eliminarFila(this)
+          }
 
-            for (let i = 0; i < filas; i++) {
-                document.write("<tr id='fila'>");
+          let botonMas = document.createElement('button')
+          botonMas.textContent = '+'
+          botonMas.onclick = function () {
+            agregarFila(tabla)
+          }
 
-                for (let j = 0; j < columnas; j++) {
-                    if (j != 3) {
-                        document.write("<td>" + numero++ + "</td>");
-
-                    } else {
-
-                        document.write("<td>" + botonRemove + " " + botonAdd + "</td>");
-                    }
-                }
-            }
-            document.write("</table");
+          celda.appendChild(botonMenos)
+          celda.appendChild(botonMas)
         }
-        function addElemento() {
-            let tabla = document.getElementById('tabla');
-            if(columnas===3){
+      }
+    }
 
-                document.write("<td>" + numero++ + "</td>");
-
-            } else {
-                document.write("<td>" + numero++ + "</td>")
-            }
-
-
-            }
-
-
-
-        
-        function removeElemento() {
-
-        }
-    </script>
+    function eliminarFila(boton) {
+      let fila = boton.parentNode.parentNode
+      fila.parentNode.removeChild(fila)
+    }
+  </script>
 </body>
 
 </html>

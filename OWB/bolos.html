@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tirada de Bolos</title>
+  </head>
+  <body onload="tirarBolos()">
+    <script>
+      let bolos = 9;
+      var tirada;
+      tirada = Math.floor(Math.random() * 10) + 0;
+      bolos = bolos - tirada;
+
+      function tirarBolos() {
+        document.write("Tirada: " + tirada + "\n");
+        document.write("Bolos: " + bolos);
+        if (tirada == 9 && bolos == 0) {
+          alert("strike!");
+        }
+      }
+    </script>
+  </body>
+</html>
