@@ -1,0 +1,363 @@
+﻿-TABLA DINAMICA---:
+      window.onload = function iniciar() {
+        document
+          .getElementById("add")
+          .addEventListener("click", addFila, false);
+        document
+          .getElementById("eliminar")
+          .addEventListener("click", eliminarFila, false);
+      };
+      function addFila() {
+        let td1 = document.createElement("td");
+        let valor1 = document.createTextNode(
+          document.getElementById("celda1").value
+        );
+        td1.appendChild(valor1);
+
+        let td2 = document.createElement("td");
+        let valor2 = document.createTextNode(
+          document.getElementById("celda2").value
+        );
+        td2.appendChild(valor2);
+
+        let td3 = document.createElement("td");
+        let valor3 = document.createTextNode(
+          document.getElementById("celda3").value
+        );
+        td3.appendChild(valor3);
+
+        let td4 = document.createElement("td");
+        let botonsuma = document.createElement("button");
+        botonsuma.appendChild(document.createTextNode("+"));
+        td4.appendChild(botonsuma);
+        botonsuma.addEventListener("click", addFila, false);
+
+        let boton = document.createElement("button");
+        boton.appendChild(document.createTextNode("-"));
+        td4.appendChild(boton);
+        boton.addEventListener("click", eliminarFila, false);
+
+        let fila = document.createElement("tr");
+        fila.appendChild(td1);
+        fila.appendChild(td2);
+        fila.appendChild(td3);
+        fila.appendChild(td4);
+        let padre = this.parentNode.parentNode;
+        document.getElementsByTagName("tbody")[0].insertBefore(fila, padre);
+      }
+
+      function eliminarFila() {
+        let fila = this.parentNode.parentNode;
+        fila.remove();
+      }
+    </script>
+    <table>
+      <tr id="1">
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>
+          <input type="button" value="+" class="add" id="add" /><input
+            type="button" class="eliminar"
+            value="-" id="eliminar"/> </td> </tr> </table> <form>
+      <label>celda1</label><input type="text" id="celda1" />
+--- EVENTO --------------------------------------------------------:
+<h1>Pulsa una tecla</h1>
+    <div id="divCentral"></div>
+
+    <script>
+      document.addEventListener("keypress", function (event) {
+        let divCentral = document.getElementById("divCentral");
+        divCentral.innerText = event.key;
+      });
+    </script>
+
+--- REJILLA --------------------------------------------------------:
+
+     <div id="paleta" class="clearfix">
+    </div>
+
+    <div id="control">
+        Filas: <input type="number" id="filas" name="filas" size="3" min="5" max="100" value="20">
+        Columnas: <input type="number" id="columnas" name="columnas" size="3" min="5" max="100" value="20">
+        Tam punto: <input type="number" id="tampunto" name="tampunto" size="3" min="1" max="100" value="10">
+        Borde : <input type="checkbox" id="borde" name="borde">
+
+        <input id="boton" type="button" value="aceptar" onclick="configurarRejilla()">
+    </div>
+
+    <div id="rejilla" class="clearfix">
+    </div>
+
+    <script>
+        function configurarRejilla() {
+            let filas = document.getElementById("filas").value;
+            let columnas = document.getElementById("columnas").value;
+            let tampunto = document.getElementById("tampunto").value;
+            let borde = document.getElementById("borde").checked;
+            crearRejilla(filas, columnas, tampunto);
+            setBorde(borde);
+        }
+
+        function setBorde(borde) {
+            var rejilla = document.getElementById("rejilla");
+            rejilla.style.border = borde ? "10px solid #000" : "none";
+        }
+
+        function pintarPunto(punto) {
+            punto.style.background = colorActual;
+        }
+
+        function initPaletaColor(colores) {
+            var paleta = document.getElementById("paleta");
+            for (var i = 0; i < colores.length; i++) {
+                color = document.createElement("div");
+                color.className = "color " + colores[i];
+                color.style.backgroundColor = colores[i];
+                color.onclick = function () {
+                    colorActual = this.style.backgroundColor;
+                }
+                paleta.appendChild(color);
+            }
+        }
+
+        function crearRejilla(fil, col, tampunto) {
+            var rejilla = document.getElementById("rejilla");
+            rejilla.innerHTML = "";
+            rejilla.style.width = (fil * tampunto + fil * 2) + "px";
+
+            for (var i = 0; i < fil; i++) {
+                for (var j = 0; j < col; j++) {
+                    var pixel = document.createElement("div");
+                    var idPunto = i + "x" + j;
+                    pixel.setAttribute("id", idPunto);
+                    pixel.style.width = tampunto + "px";
+                    pixel.style.height = tampunto + "px";
+                    pixel.className = "punto";
+                    pixel.onclick = function () {
+                        pintarPunto(this);
+                    }
+                    rejilla.appendChild(pixel);
+                }
+            }
+
+        }
+        var colorActual = "black";
+        window.onload = function () {
+            var colores = ["red", "green", "blue", "yellow", "orange", "pink", "black", "white", "brown", "purple"];
+            initPaletaColor(colores);
+            crearRejilla(20, 20, 40);
+        }
+
+    
+------------TABLERO -----------------------------------------------------------:
+<div id="tablero"></div>
+
+  <div id="botones" class="button">
+    <button id="limpiar">Resetear Tablero</button>
+    <button id="rojo">Rojo</button>
+    <button id="blanco">Blanco</button>
+    <button id="ajedrez">Ajedrez</button>
+    <button id="sumaR">Sumar Rojas</button>
+    <button id="sumaB">Sumar Blancas</button>
+  </div>
+
+<div id="resultado"></div>
+
+window.onload = crearTablero;
+function crearTablero() {
+  //Botones
+  document.getElementById("limpiar").addEventListener("click", limpiar, false);
+  document.getElementById("rojo").addEventListener("click", pintarRojo, false);
+  document.getElementById("blanco").addEventListener("click", pintarBlanco, false);
+  document.getElementById("ajedrez").addEventListener("click", ajedrez, false);
+  document.getElementById("sumaR").addEventListener("click", sumarRojas, false);
+  document.getElementById("sumaB").addEventListener("click", sumarBlancas, false);
+  //Tablero
+  let tablero = document.getElementById("tablero");
+  let secuencia = [];
+  let numero = 0;
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      let casilla = document.createElement("div");
+      numero = numAleUnico(secuencia);
+      secuencia.push(numero);
+      casilla.setAttribute("id", numero);
+      casilla.className = "casilla blanca";
+      let contenido = document.createTextNode(numero);
+      casilla.appendChild(contenido);
+      casilla.addEventListener("click", seleccionar, false);
+      tablero.appendChild(casilla);
+    }
+  }
+}
+function numAleUnico(secuencia) {
+  let numero = 0;
+  do {
+    numero = Math.round(Math.random() * 15);
+  } while (secuencia.includes(numero));
+  return numero;
+}
+function seleccionar(evento) {
+  evento.target.className = "casilla roja";
+}
+function limpiar() {
+  let tablero = document.getElementById("tablero");
+  for (let i = 0; i < tablero.getElementsByTagName("div").length; i++) {
+    if (tablero.getElementsByTagName("div")[i].className == "casilla roja") {
+      tablero.getElementsByTagName("div")[i].className = "casilla blanca";
+    }
+  }
+  document.getElementById("resultado").innerHTML = "";
+
+}
+function pintarBlanco() {
+  let tablero = document.getElementById("tablero");
+  for (let i = 0; i < tablero.getElementsByTagName("div").length; i++) {
+    tablero.getElementsByTagName("div")[i].addEventListener(
+      "click",
+      function pinBlanco() {
+        this.className = "casilla blanca";
+      },
+      false
+    );
+  }
+}
+function pintarRojo() {
+  let tablero = document.getElementById("tablero");
+  for (let i = 0; i < tablero.getElementsByTagName("div").length; i++) {
+    tablero.getElementsByTagName("div")[i].addEventListener(
+      "click",
+      function pinRojo() {
+        this.className = "casilla roja";
+      },
+      false
+    );
+  }
+}
+function sumarRojas() {
+  let suma = 0;
+  let tablero = document.getElementById("tablero");
+  for (let i = 0; i < tablero.getElementsByTagName("div").length; i++) {
+    if (tablero.getElementsByTagName("div")[i].className == "casilla roja") {
+      suma += parseInt(tablero.getElementsByTagName("div")[i].id);
+    }
+  }
+  document.getElementById("resultado").innerHTML = " la rojas son: " + suma;
+}
+function sumarBlancas() {
+  let suma = 0;
+  let tablero = document.getElementById("tablero");
+  for (let i = 0; i < tablero.getElementsByTagName("div").length; i++) {
+    if (tablero.getElementsByTagName("div")[i].className == "casilla blanca") {
+      suma += parseInt(tablero.getElementsByTagName("div")[i].id);
+    }
+  }
+  document.getElementById("resultado").innerHTML = " la blancas son: " + suma;
+}
+function ajedrez() {
+  let tablero = document.getElementById("tablero");
+  for (let i = 0; i < tablero.getElementsByTagName("div").length; i++) {
+    if (i < 4 || (i > 7 && i < 12)) {
+      if (i % 2 == 0)
+        tablero.getElementsByTagName("div")[i].className = "casilla blanca";
+      else tablero.getElementsByTagName("div")[i].className = "casilla roja";
+    } else if ((i > 3 && i < 8) || i > 11) {
+      if (i % 2 == 0)
+        tablero.getElementsByTagName("div")[i].className = "casilla roja";
+      else tablero.getElementsByTagName("div")[i].className = "casilla blanca";
+    }
+  }
+}  
+  ----COCHE CIRCULANDO---------------------------:
+   <h1>Mi coche</h1>
+  <div id="visor">
+    <div id="fondouno">
+      <img src="fondoCoche.gif" alt="fondo1" />
+    </div>
+    <div id="fondodos">
+      <img src="fondoCoche.gif" alt="fondo2" />
+    </div>
+    <div id="micoche">
+      <img src="coche.gif" alt="elCoche" />
+    </div>
+  </div>
+  <script>
+    window.onload = function () {
+      let fondo1 = document.getElementById("fondouno");
+      let fondo2 = document.getElementById("fondodos");
+      let posicion = 0;
+      let velocidad = 1;
+
+      function moverFondo() {
+        posicion -= velocidad;
+        fondo1.style.left = posicion + "px";
+        fondo2.style.left = posicion + 450 + "px";
+
+        if (posicion <= -450) {
+          posicion = 0;
+        }
+      }
+      setInterval(moverFondo, velocidad);
+    };
+------------CINE--------------------------------------------------
+      window.onload = function () {
+            let sala = document.getElementById('sala');
+            let reservas = document.getElementById('reservas');
+            let reservarBtn = document.getElementById('reservar');
+            let f = 15;
+            let c = 11;
+            let seleccionadas = [
+                [5, 4], [5, 5], [5, 6], [7, 2], [7, 3],
+                [9, 7], [9, 8], [10, 5], [10, 6], [10, 7],
+                [11, 7], [13, 8]
+            ];
+            let butacasSeleccionadas = [];
+
+            function generarSala() {
+                for (let i = 0; i < f; i++) {
+                    for (let j = 0; j < c; j++) {
+                        let butaca = document.createElement('div');
+                        butaca.id = `${i},${j}`;
+                        butaca.classList.add('butaca');
+                        butaca.textContent = `${i},${j}`;
+
+                        if (j === c - 2 || j === c - 3 || (i < 5 && (j < 3 || j > 7))) {
+                            butaca.classList.add('nobutaca');
+                        } else if (seleccionadas.some(b => b[0] === i && b[1] === j)) {
+                            butaca.classList.add('ocupada');
+                        } else {
+                            butaca.classList.add('libre');
+                            butaca.addEventListener('click', function () {
+                                seleccionarButaca(i, j);
+                            });
+                        }
+
+                        sala.appendChild(butaca);
+                    }
+                }
+            }
+
+            function seleccionarButaca(fila, columna) {
+                let butaca = document.getElementById(`${fila},${columna}`);
+                if (butaca.classList.contains('libre')) {
+                    butaca.classList.remove('libre');
+                    butaca.classList.add('seleccion');
+                    butacasSeleccionadas.push([fila, columna]);
+
+                }
+            }
+
+            reservarBtn.addEventListener('click', function () {
+                butacasSeleccionadas.forEach(b => {
+                    let butaca = document.getElementById(`${b[0]},${b[1]}`);
+                    butaca.classList.remove('seleccion');
+                    butaca.classList.add('ocupada');
+                });
+                reservas.value = butacasSeleccionadas.map(b => `<${b[0]},${b[1]}>`).join(', ');
+                butacasSeleccionadas = [];
+            });
+
+            generarSala();
+        };
+

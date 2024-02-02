@@ -43,7 +43,6 @@ function limpiar() {
     }
   }
   document.getElementById("resultado").innerHTML = "";
-
 }
 function pintarBlanco() {
   let tablero = document.getElementById("tablero");
