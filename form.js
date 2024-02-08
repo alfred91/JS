@@ -1,111 +1,117 @@
 window.onload = iniciar;
 
 function iniciar() {
-    // Cuando el documento esté cargado asignaremos los eventos siguientes.
-    // Al hacer click en el botón de enviar tendrá que llamar a la validación del formulario.
-    document.getElementById("enviar").addEventListener('click', validar, false);
+    document.getElementById("enviar").addEventListener("click", validar, false);
 
-    // Asignamos que cuando pierda el foco el Nombre y los apellidos ponga en mayúsculas las Iniciales.
-    document.getElementById("nombre").addEventListener('blur', mayusculas, false);
+    document.getElementById("nombre").addEventListener("blur", mayuscula, false);
+    document.getElementById("apellidos").addEventListener("blur", mayuscula, false);
 }
 
 function validar(eventopordefecto) {
-    var errores = document.getElementById("errores");
-    errores.innerHTML = ""; // Limpiamos los errores anteriores
-
-    if (contadorIntentos() && validarCamposTextoYEdad("nombre,email,fechaNac,dni,pass,passver") && validarNIF() && validarEmail() && validarFecha()) {
-        return confirmarEnvio();
-    } else {
-        // Cancelamos el evento de envío por defecto asignado al botón de submit enviar.
+    if (contadorIntentos() && validarCamposNombreApellidos("0,1,2") && validarPass() && validarNIF()
+        && validarEmail() && validarFecha() && confirmarEnvio())
+        return true;
+    else {
         eventopordefecto.preventDefault();
-
-        // Sale de la función devolviendo false.
         return false;
     }
 }
 
-function mayusculas() {
+function mayuscula() {
     this.value = this.value.toUpperCase();
 }
 
-function validarCamposTextoYEdad(campos) {
-    var miformulario = document.getElementById("f1");
-    var camposChequear = campos.split(",");
-    var errores = document.getElementById("errores");
-    var error = false;
+function validarCamposNombreApellidos() {
+    var nombre = document.getElementById("nombre").value
+    var apellidos = document.getElementById("apellidos").value
 
-    for (var i = 0; i < camposChequear.length; i++) {
-        // Eliminamos la clase error si es que estaba asignada a algún campo anteriormente.
-        miformulario.elements[camposChequear[i]].className = "";
-
-        if (miformulario.elements[camposChequear[i]].type === "text" && miformulario.elements[camposChequear[i]].value === "") {
-            errores.innerHTML += "El campo " + camposChequear[i] + " no puede estar en blanco<br>";
-            miformulario.elements[camposChequear[i]].focus();
-            miformulario.elements[camposChequear[i]].className = "error";
-            error = true;
-        }
+    if (nombre === "" || apellidos === "") {
+        document.getElementById("errores").innerHTML = "Los campos Nombre y Apellidos no pueden estar en blanco";
+        return false;
     }
 
-    return !error;
+    return true;
 }
 
-function validarNIF() {
-    var patron = /^\d{8}-[A-Z]{1}$/;
-    var errores = document.getElementById("errores");
+function validarEmail() {
+    var email = document.getElementById("email").value
+    var patron = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-    if (patron.test(document.getElementById("dni").value)) {
+    if (patron.test(email)) {
         return true;
     } else {
-        errores.innerHTML += "El campo DNI está incorrecto. Formato 8 dígitos - Letra Mayúscula<br>";
-        document.getElementById("dni").focus();
-        document.getElementById("dni").className = "error";
+        document.getElementById("errores").innerHTML = "El campo Email es incorrecto";
         return false;
     }
 }
 
-function validarEmail() {
-    var patron = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    var errores = document.getElementById("errores");
+function validarPass() {
+    var contraseña = document.getElementById("pass").value;
+    var contraseña1 = document.getElementById("passver").value;
 
-    if (patron.test(document.getElementById("email").value)) {
+    if (contraseña === contraseña1 && contraseña !== "" && contraseña1 !== "") {
         return true;
     } else {
-        errores.innerHTML += "El campo Email está incorrecto.<br>";
-        document.getElementById("email").focus();
-        document.getElementById("email").className = "error";
+        document.getElementById("errores").innerHTML = "Las contraseñas no coinciden";
         return false;
     }
 }
 
 function validarFecha() {
-    var patron1 = /^\d{2}\/\d{2}\/\d{4}$/;
-    var errores = document.getElementById("errores");
+    var fecha = document.getElementById("fnac").value
+    var patron = /^\d{4}-\d{2}-\d{2}$/;
 
-    if (patron1.test(document.getElementById("fechaNac").value)) {
+    if (patron.test(fecha)) {
         return true;
     } else {
-        errores.innerHTML += "El campo Fecha de Nacimiento está incorrecto. Formato dd/mm/aaaa<br>";
-        document.getElementById("fechaNac").focus();
-        document.getElementById("fechaNac").className = "error";
+        document.getElementById("errores").innerHTML = "La fecha de nacimiento es incorrecta";
+        return false;
+    }
+}
+
+function validarNIF() {
+    var nif = document.getElementById("nif").value
+    var patron = /^\d{8}-[A-Z]$/;
+
+    if (patron.test(nif)) {
+        return true;
+    } else {
+        document.getElementById("errores").innerHTML = "El campo NIF es incorrecto. Formato: 8 números, un guion y una letra";
+        return false;
+    }
+}
+
+function validarContraseña() {
+    var pass = document.getElementById("pass").value;
+    var passver = document.getElementById("passver").value;
+
+    if (pass === passver) {
+        return true;
+    } else {
+        document.getElementById("errores").innerHTML = "Las contraseñas no coinciden";
         return false;
     }
 }
 
 function contadorIntentos() {
     var contador = 0;
-    var errores = document.getElementById("errores");
 
-    // Si no existe la cookie la creamos y grabamos el texto contador=0.
-    if (document.cookie === "") {
-        document.cookie = "contador=0";
+    var cookieArray = document.cookie.split(';');
+    for (var i = 0; i < cookieArray.length; i++) {
+        var cookie = cookieArray[i].trim();
+        if (cookie.startsWith('contador=')) {
+            contador = parseInt(cookie.substring(9)) || 0;
+            break;
+        }
     }
 
-    contador = parseInt(document.cookie.substring(9)) + 1;
+    contador++;
     document.cookie = "contador=" + contador;
-    errores.innerHTML += "Intento de Envíos del formulario: " + contador + ".<br>";
+    document.getElementById("intentos").innerHTML = "Intento de Envíos del formulario: " + contador + ".";
     return true;
 }
 
 function confirmarEnvio() {
+    document.getElementById("errores").innerHTML = "";
     return confirm("¿Deseas enviar el formulario?");
 }
