@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="botones">
+        <button id="add">Añadir</button>
+        <button id="rm" onclick=>Borrar Ultimo</button>
+        <button id="rmselect">Elejir cual borrar</button>
+
+    </div>
+    <div id="lista"></div>
+    <script>
+        window.onload = inicio;
+        function inicio() {
+            document.getElementById("add").addEventListener('click', add, false);
+            document.getElementById("rm").addEventListener('click', rm, false);
+            document.getElementById("rmselect").addEventListener('click', rmselect, false);
+        };
+        const lista = document.getElementById("lista");
+
+        function add() {
+            let ul = document.createElement("ul");
+            let li = document.createElement("li");
+            let contenido = document.createTextNode(prompt("Que añadimos a la lista?"));
+
+            li.appendChild(contenido);
+            ul.appendChild(li);
+            lista.appendChild(li);
+        }
+
+        function rm() {
+            let li = document.getElementsByTagName("li");
+            for (let i = 1; i <= li.length; i++) {
+                if (i == li.length) {
+                    lista.removeChild(li[i - 1]);
+                }
+            }
+        }
+        function rmselect() {
+            let eleccion = parseInt(prompt("¿Que elemento borramos?"));
+            if (!isNaN(eleccion)) {
+                let li = document.getElementsByTagName("li");
+                for (let i = 1; i <= li.length; i++) {
+                    if (i = eleccion) {
+                        lista.removeChild(li[i - 1]);
+                    }
+                }
+            } else {
+                alert("introduce un numero valido");
+            }
+        }
+    </script>
+</body>
+
+</html>

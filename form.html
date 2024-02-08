@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación Formulario</title>
+</head>
+
+<body>
+    <form action="post" name="f1" id="f1" onsubmit="return checkForm();">
+
+        <fieldset>
+            <legend>Registro de Usuarios</legend>
+
+            <label for="nombre">Nombre Completo:</label>
+            <br>
+            <input type="text" name="nombre" id="nombre" required>
+            <br>
+
+            <label for="email">Email:</label>
+            <br>
+            <input type="email" name="email" id="email" required>
+            <br>
+
+            <label for="fechaNac">Fecha de Nacimiento:</label>
+            <br>
+            <input type="date" name="fechaNac" id="fechaNac" required>
+            <br>
+
+            <label for="dni">DNI:</label>
+            <br>
+            <input type="text" name="dni" id="dni" required>
+            <br>
+
+            <label for="pass">Contraseña:</label>
+            <br>
+            <input type="password" name="pass" id="pass">
+            <br>
+
+            <label for="passver">Repite contraseña:</label>
+            <br>
+            <input type="password" name="passver" id="passver">
+            <br>
+
+            <input type="submit" name="enviar" id="enviar" value="enviar">
+        </fieldset>
+    </form>
+    <div id="errores">
+        <div id="intentos"></div>
+    </div>
+    <script src="form.js">
+    </script>
+</body>
+
+</html>

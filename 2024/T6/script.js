@@ -59,12 +59,9 @@ function pintarBlanco() {
 function pintarRojo() {
   let tablero = document.getElementById("tablero");
   for (let i = 0; i < tablero.getElementsByTagName("div").length; i++) {
-    tablero.getElementsByTagName("div")[i].addEventListener(
-      "click",
-      function pinRojo() {
-        this.className = "casilla roja";
-      },
-      false
+    tablero.getElementsByTagName("div")[i].addEventListener("click", function pinRojo() {
+      this.className = "casilla roja";
+    }, false
     );
   }
 }
